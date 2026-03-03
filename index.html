@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>liyigarden｜个人主页与文章</title>
+  <meta name="description" content="liyigarden 的个人主页：记录技术、笔记与生活。中文为主，面向国内外读者。" />
+  <link rel="canonical" href="https://liyigarden.xyz/" />
+
+  <link rel="stylesheet" href="/CSS/mainstyle.css" />
+  <link rel="icon" href="/favicon.ico" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="liyigarden｜个人主页与文章" />
+  <meta property="og:description" content="记录技术、笔记与生活。中文为主，面向国内外读者。" />
+  <meta property="og:url" content="https://liyigarden.xyz/" />
+  <meta property="og:image" content="https://liyigarden.xyz/assets/og.png" />
+</head>
+
+<body>
+  <div class="container">
+    <header class="site-header">
+      <p class="site-title">liyigarden</p>
+      <p class="site-subtitle">记录技术、笔记与生活。中文为主，面向国内外读者。</p>
+      <nav class="nav">
+        <a href="/">首页</a>
+        <a href="/posts/first-post.html">第一篇</a>
+        <!-- 你也可以加：GitHub / 邮箱 / 其他链接 -->
+      </nav>
+    </header>
+
+    <main>
+      <h1>文章</h1>
+      <ul class="post-list">
+        <li class="post-item">
+          <div><a href="/posts/first-post.html">我的第一篇文章</a></div>
+          <div class="meta">2026-03-03 · 简单开篇</div>
+        </li>
+      </ul>
+
+      <hr />
+
+      <h2>关于liyigarden</h2>
+      <p>一个简单样式的博客，分享一些自己知道的内容。</p>
+      
+    </main>
+
+    <footer class="footer">
+      <div>© <span id="y"></span> liyigarden.xyz</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

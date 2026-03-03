@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>我的第一篇文章｜liyigarden</title>
+  <meta name="description" content="这是一篇示例文章，用于搭建最小静态博客结构。" />
+  <link rel="canonical" href="https://liyigarden.xyz/posts/first-post.html" />
+
+  <link rel="stylesheet" href="/CSS/mainstyle.css" />
+  <link rel="icon" href="/favicon.ico" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="我的第一篇文章｜liyigarden" />
+  <meta property="og:description" content="这是一篇示例文章，用于搭建最小静态博客结构。" />
+  <meta property="og:url" content="https://liyigarden.xyz/posts/first-post.html" />
+  <meta property="og:image" content="https://liyigarden.xyz/assets/og.png" />
+</head>
+
+<body>
+  <div class="container">
+    <header class="site-header">
+      <p class="site-title"><a href="/" style="color:inherit;text-decoration:none">liyigarden</a></p>
+      <nav class="nav">
+        <a href="/">← 返回首页</a>
+      </nav>
+    </header>
+
+    <main>
+      <article>
+        <h1>我的第一篇文章</h1>
+        <p class="meta"><time datetime="2026-03-03">2026-03-03</time> · 简单开篇</p>
+
+        <p>这是测试部分，大可不必在意。</p>
+
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div>© <span id="y"></span> liyigarden.xyz · <a href="/">首页</a></div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
