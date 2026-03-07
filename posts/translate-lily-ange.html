@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>用团子翻译器玩莉莉天使（りりぃあんじぇ）</title>
+  <meta name="description" content="团子翻译器玩莉莉天使（りりぃあんじぇ），图文教程。" />
+  <link rel="canonical" href="https://liyigarden.xyz/posts/translate-lily-angel.html" />
+
+  <link rel="stylesheet" href="/CSS/mainstyle.css" />
+  <link rel="icon" href="/favicon.ico" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="dangotranslate_playing_lily-ange" />
+  <meta property="og:description" content="这是一篇游戏攻略图文教程。" />
+  <meta property="og:url" content="https://liyigarden.xyz/posts/translate-lily-angel.html" />
+  <meta property="og:image" content="https://liyigarden.xyz/assets/og.png" />
+</head>
+
+<body>
+  <div class="container">
+    <header class="site-header">
+      <p class="site-title"><a href="/" style="color:inherit;text-decoration:none">liyigarden</a></p>
+      <nav class="nav">
+        <a href="/">← 返回首页</a>
+      </nav>
+    </header>
+
+    <main>
+      <article>
+        <p class="meta"><time datetime="2026-03-07">2026-03-07</time></p>
+        <h1>用团子翻译器玩莉莉天使（りりぃあんじぇ）</h1>
+        <p>先介绍下团子翻译器是什么，以及它有什么用。</p>
+        <p>简单来说，它就是一个开源的实时翻译软件。可以用本地文字识别（OCR）配合大模型（LLM）或是机器翻译完成翻译的软件。
+          目前软件支持日文、俄文、英文、繁体中文、韩文、简体中文六种语言。软件目前仅有Windows版本，不支持Mac、Linux，也不支持手机端。
+        </p>
+        <p>团子翻译器最早的用途是拿来翻译galgame或是漫画<del>（本子）</del>，当日常翻译软件使用完全没有问题。翻译其他类型的游戏也没有问题。</p>
+        <p>本文将介绍如何用它翻译《莉莉天使》</p>
+        <p>作为一名萝莉控，那么莉莉天使可以作为品鉴的一环。</p>
+        <p>虽然游戏玩法比较一般，但是并不妨碍各位品鉴萝莉。</p>
+        <img src="https://ririan.gamewiki.jp/wp-content/uploads/1500x500-3.jpg" width="500px" alt="莉莉天使宣传图">
+        <p>首先，《莉莉天使》是DMM R18的游戏。也就是FANZA GAMES。但是呢，DMM的游戏是锁了日区的。
+          目前《莉莉天使》也暂无其他地区代理，所以游戏内置的语言是日语。虽然有大佬做出了中文补丁。不过，本次教程针对的是不太想折腾补丁的玩家。</p>
+        <h2>准备工作：</h2>
+        <ol>
+          <li>一台可以上网的PC。如：笔记本电脑或是台式机。</li>
+          <li>一个国外的浏览器：如<a href="https://www.microsoft.com/zh-cn/edge/download?form=MI13F3" target="_blank">Edge</a>、
+            <a href="https://www.google.com/intl/zh-CN/chrome/" target="_blank">Chrome</a>等。
+          </li>
+          <li>确保电脑可以正常访问<a href="https://games.dmm.co.jp/" target="_blank">FANZA GAMES</a>。也就是有代理工具。</li>
+          <li>团子翻译器。</li>
+          <li>任意大模型（LLM）的API，本文以<a href="https://chat.deepseek.com/" target="_blank">DeepSeek</a>作为演示。</li>
+        </ol>
+        <p class="title"><b>我们打开浏览器搜索团子翻译器。</b></p>
+        <img class="Screenshots" src="/img/translate-lily-ange/browser_search.webp" alt="search_in_browser">
+        <p>也可以访问下面的地址。</p>
+        <a href="https://translator.dango.cloud/" target="_blank">团子翻译</a>
+        <p class="title"><b>在出现的结果中点击团子翻译器的官网。</b></p>
+        <img class="Screenshots" src="/img/translate-lily-ange/searchpage.webp" alt="searchpage">
+        <p>点击链接进入官网。注意比对一下你打开的官网和这边打开的官网是否一致。避免进错其他的网站。</p>
+        <p class="title"><b>然后我们点击最新安装包下载团子翻译器。</b></p>
+        <img class="Screenshots" src="/img/translate-lily-ange/downloadpage.webp" alt="downloadpage">
+        <p class="title"><b>在弹出的浏览器窗口中等待下载完成，随后我们点击安装程序进行安装。</b></p>
+        <img class="Screenshots" src="/img/translate-lily-ange/downloading.webp" alt="downloading">
+        <p class="title"><b>下载完成后我们在浏览器下载窗口中点击并打开安装程序。</b></p>
+        <img class="Screenshots" src="/img/translate-lily-ange/Openfile.webp" alt="Open_download_file">
+        <p class="title"><b>如果不小心把下载窗口关闭了，也可以在侧边栏重新打开它。</b></p>
+        <img class="Screenshots" src="/img/translate-lily-ange/Open_download.webp" alt="Open_download_table">
+        <p class="title"><b>随后我们开始安装，点击下一步。</b></p>
+        <img class="install" src="/img/translate-lily-ange/install01.webp" alt="install01">
+        <p class="title"><b>再次点击下一步</b></p>
+        <img class="install" src="/img/translate-lily-ange/install02.webp" alt="install02">
+        <p class="title"><b>这里保持默认，再次点击下一步。</b></p>
+        <img class="install" src="/img/translate-lily-ange/install03.webp" alt="install03">
+        <p class="title"><b>点击安装</b></p>
+        <img class="install" src="/img/translate-lily-ange/install04.webp" alt="install04">
+        <p class="title"><b>等待安装程序安装完成,安装完成后我们关闭安装程序。</b></p>
+        <img src="/img/translate-lily-ange/install05.webp" alt="install05">
+        <p>那么，安装部分到这里就算完成了。此时团子翻译器应该已经出现在你的系统桌面上了。</p>
+        <h3>总结要点：</h3>
+        <ol>
+          <li>打开浏览器找到团子翻译器官网。</li>
+          <li>从官网下载安装程序。</li>
+          <li>在系统上安装团子翻译器。</li>
+        </ol>
+        <p>
+          翻译器的配置部分将放到下一篇文章，本次文章的篇幅大概设置在1000字左右。
+        </p>
+        <p>那么敬请期待，最快会在明天完成。</p>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div>© <span id="y"></span> liyigarden.xyz · <a href="/">首页</a></div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
