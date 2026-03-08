@@ -159,15 +159,15 @@ code {
 }
 
 .Screenshots {
-  height: 400px;
-  width: 800px;
+  max-width: 100%;
+  height: auto;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
 .install {
-  height: 500px;
-  width: 800px;
+  max-width: 100%;
+  height: auto;
   margin-top: 10px;
   margin-bottom: 10px;
 }
