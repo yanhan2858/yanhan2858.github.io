@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- 页面标题 -->
+    <title>团子翻译器配置大模型翻译玩莉莉天使（りりぃあんじぇ）</title>
+
+    <!-- SEO 描述 -->
+    <meta name="description" content="图文教程：教你使用团子翻译器配置DeepSeek大模型，实现日文游戏实时翻译，并以FANZA游戏《莉莉天使》为例进行演示。" />
+
+    <!-- 当前文章URL -->
+    <link rel="canonical" href="https://liyigarden.xyz/posts/translate-lily-ange2" />
+
+    <link rel="stylesheet" href="/CSS/mainstyle.css" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- 社交媒体分享 -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="团子翻译器配置大模型翻译玩莉莉天使（りりぃあんじぇ）" />
+    <meta property="og:description" content="团子翻译器配置Deepseek翻译莉莉天使（りりぃあんじぇ）" />
+    <meta property="og:url" content="https://liyigarden.xyz/posts/translate-lily-ange2" />
+    <meta property="og:image" content="https://liyigarden.xyz/assets/og.png" />
+
+</head>
+
+<body>
+    <div class="container">
+
+        <header class="site-header">
+            <p class="site-title">
+                <a href="/" style="color:inherit;text-decoration:none">liyigarden</a>
+            </p>
+
+            <nav class="nav">
+                <a href="/">← 返回首页</a>
+            </nav>
+        </header>
+
+        <main>
+            <article>
+
+                <!-- 发布时间 -->
+                <p class="meta">
+                    <time datetime="2026-3-11">2026-3-11</time>
+                </p>
+                <!-- 文章标题 -->
+                <h1>团子翻译器配置大模型翻译玩莉莉天使（りりぃあんじぇ）</h1>
+
+                <!-- ===== 文章正文开始 ===== -->
+
+                <p class="title">
+                    <b>久等了，继续<a href="/posts/translate-lily-ange.html">上篇文章</a>的团子翻译器部分。安装完成后系统桌面上应该能看到团子翻译器了。我们用鼠标点击打开它。</b>
+                </p>
+                <img class="Screenshots" src="/img/translate-lily-ange2/desktop.webp" alt="desktop_system">
+
+                <p class="title">
+                    <b>随后就能看到团子翻译器的登录页面了，我们需要先注册一个账号才能使用。</b>
+                </p>
+                <img src="/img/translate-lily-ange2/dangologin.webp" height="400" alt="desktop_dango">
+
+                <p class="title"><b>鼠标点击注册</b></p>
+                <img class="Screenshots" src="/img/translate-lily-ange2/setup_account_type.webp"
+                    alt="setup_account_type">
+
+                <p class="title"><b>这里团子翻译器提供了两种注册方式，手机号和邮箱。选择一个你觉得合适的。</b></p>
+                <img class="Screenshots" src="/img/translate-lily-ange2/setup_account01.webp" alt="setup_account01">
+                <p class="title">
+                    <b>选择邮箱注册我们需要输入用户名（取一个你认为合适的）、
+                        密码（自己决定或是密码管理器生成）、邮箱（可以是QQ邮箱。）、验证码（发送到邮箱的验证码）</b>
+                </p>
+                <img class="Screenshots" src="/img/translate-lily-ange2/setup_account02.webp" alt="setup_account02">
+                <p class="title">
+                    <b>选择手机号注册我们需要输入用户名（取一个你认为合适的）、
+                        密码（自己决定或是密码管理器生成）、手机号（一般是国内+86号码）、验证码（发送到手机的短信验证码）</b>
+                </p>
+                <p class="title"><b>如果不会用邮箱，用手机号注册就行。</b></p>
+                <p class="title"><b>这边博主已经有账号了，所以我选择直接登录。</b></p>
+                <img class="Screenshots" src="/img/translate-lily-ange2/dangomain.webp" alt="dangomain">
+                <p class="title"><b>首次登录会有新手引导，你可以耐心看完。我这里直接跳到API配置部分。这个才是文章重点。</b></p>
+                <p class="title"><b>点击上方的齿轮，进入设置界面。</b></p>
+                <img class="Screenshots" src="/img/translate-lily-ange2/setting.webp" alt="setting">
+                <p class="title"><b>点击常规翻译，进入常规翻译页面。</b></p>
+                <img class="Screenshots" src="/img/translate-lily-ange2/test_transfer.webp" alt="test_transfer">
+                <p class="title"><b>可以看到微软的必应翻译是默认可用的。点击测试确保翻译源可用。这个时候你就可以直接拿来用了。</b></p>
+                <p class="title"><b>但是，翻译效果可以说一言难尽。所以我们需要使用大模型进行翻译。大模型具备推理和上下文对话的能力。所以翻译效果会更出色！</b></p>
+                <img class="Screenshots" src="/img/translate-lily-ange2/bing_translation.webp" alt="bing_translation">
+                <p class="title"><b>点击选项在线AI翻译，来到这个页面。</b></p>
+                <img class="Screenshots" src="/img/translate-lily-ange2/api_setting.webp" alt="api_setting">
+                <p class="title"><b>然后我们打开通用2的设置。（通用1也行）</b></p>
+                <img src="/img/translate-lily-ange2/LLM_setting.webp" height="500" alt="LLM_setting">
+                <p class="title"><b>接下来就是重点了，要认真看!</b></p>
+                <p class="title"><b>点击下面这个链接打开deepseek开放平台。</b></p>
+                <a href="https://platform.deepseek.com" target="_blank">Deepseek开放平台（点我！）</a>
+                <img class="Screenshots" src="/img/translate-lily-ange2/platform_deepseek_com.webp"
+                    alt="platform_deepseek_com">
+                <p class="title"><b>请在这里登录你的deepseek账号。</b></p>
+                <img class="Screenshots" src="/img/translate-lily-ange2/mainpage_platform.webp" alt="mainpage_platform">
+                <p class="title"><b>这里就是deepseek API面板了，我们点击充值。（你账号如果有钱，也可以不充。）这里只是演示一下。</b></p>
+                <img class="Screenshots" src="/img/translate-lily-ange2/top_up.webp" alt="top_up">
+                <p class="title"><b>选择自定义金额进行充值。充个1￥也行，10￥能用几个月了。（取决于你的用量）充值完成后点击左侧的API KEYS。</b></p>
+                <img class="Screenshots" src="/img/translate-lily-ange2/Create_API_KEY.webp" alt="Create_API_KEY">
+                <p class="title"><b>请创建一个API KEY。名字随便取，这里我只是演示。（因为我这边已经有了）</b></p>
+                <img class="Screenshots" src="/img/translate-lily-ange2/input_api_name.webp" alt="input_api_name">
+                <p class="title">
+                    <b>
+                        请把密钥复制后保存下来放到本地，你可以创建一个文本文件来保存它。
+                        不要让其他人知道你的API KEY。否则对方可以在任意地方调用。
+                        关闭这个窗口后就不能再查看了。（我这边只是做演示。测试完我会删掉这个密钥，别删你自己的。）
+                    </b>
+                </p>
+                <img class="Screenshots" src="/img/translate-lily-ange2/copy_API_KEY.webp" alt="copy_API_KEY">
+                <p class="title"><b>随后我们点击接口文档。这里有Deepseek官方提供的API调用信息。里面的有我们调用API需要的东西。</b></p>
+                <img class="Screenshots" src="/img/translate-lily-ange2/move_to_document.webp" alt="move_to_document">
+                <p class="title"><b>请复制API的请求地址和模型名称。随后我们返回团子翻译器。</b></p>
+                <img class="Screenshots" src="/img/translate-lily-ange2/copy_information.webp" alt="copy_information">
+                <p class="title"><b>请参照图片中的配置依次填入关键的信息。</b></p>
+                <img src="/img/translate-lily-ange2/complete_API.webp" height="500" alt="complete_API">
+                <p class="title"><b>然后我们点击下方的测试按钮。确保API 调用成功，参考下图。</b></p>
+                <img class="Screenshots" src="/img/translate-lily-ange2/test_API_available.webp"
+                    alt="test_API_available">
+                <p class="title"><b>可以看到，翻译效果很不错。在关闭前请加上这段提示词。</b></p>
+                <textarea id="textBox" rows="20" cols="50">
+你是一名资深成人游戏汉化组主翻，精通日语和中文，对日本成人游戏的色情描写手法极为了解。
+
+任务：将下面的日文文本翻译成简体中文。
+
+要求（必须严格遵守，按优先级排序）：
+1. 绝对保留所有性暗示、淫语、下流描写、拟声词、生理反应等一切色情元素，绝不能删减、淡化，不能用“……”或“某部位”代替。
+2. 直译优先，但不能生硬。必须使用中文玩家最熟悉、最刺激的表达方式（参考经典汉化组如kDays、绿茶、Whirlpool汉化等的用词风格）。
+3. 淫语部分请使用网络黄游汉化中最常见的直白词汇，例如：
+   - おまんこ → 小穴/骚穴/肉穴（根据语境选最合适）
+   - ちんぽ → 肉棒/鸡巴/大肉棒
+   - イく → 要去了/高潮了/要泄了
+  - あん♡あん♡ → 啊♡嗯♡ / 哈啊♡哈啊♡
+   - 中に出して → 射里面/中出我/全部射进来
+4. 保留所有拟声词并翻译成中文玩家习惯的写法（如 くちゅくちゅ → 咕啾咕啾，ぴちゃぴちゃ → 啪嚓啪嚓，ずちゅずちゅ → 滋啾滋啾）
+5. 语气词、语感、节奏要和日文几乎一致，娇喘、羞耻、傲娇、抖M等角色性格不能变。
+6. 绝对不要加任何解释、备注、审查，直接只输出翻译后的中文文本。
+                                    
+日文原文：
+"""
+{paste your Japanese text here}
+"""
+                    
+                    </textarea>
+
+                <br><br>
+
+                <button onclick="copyText()">复制</button>
+
+                <script>
+                    function copyText() {
+                        const textArea = document.getElementById("textBox");
+
+                        textArea.select();
+                        textArea.setSelectionRange(0, 99999);
+
+                        document.execCommand("copy");
+
+                        alert("复制成功！");
+                    }
+                </script>
+                <p class="title"><b>不需要删掉原有的提示词，我们可以输入回车后从上方粘贴。因为删掉原有的提示词会对翻译有影响。返回的可能不是JSON格式。</b></p>
+                <img src="/img/translate-lily-ange2/input_enter.webp" height="500" alt="input_enter">
+                <p class="title"><b>然后把那一段提示词粘贴上去。这就是最终的成果了。</b></p>
+                <img src="/img/translate-lily-ange2/Finally.webp" height="500" alt="Finally">
+                <p class="title"><b>关闭页面，它会自动保存。 再次测试，确保API可用并打开翻译源。</b></p>
+                <img class="Screenshots" src="/img/translate-lily-ange2/Open_translation.webp" alt="Open_translation">
+                <p class="title">
+                    <b>
+                        好了，翻译器部分配置完成了。接下来我们进入游戏。
+                        请打开你的代理工具进行魔法上网。请务必挂上日本节点！
+                        点击下面的地址，那是莉莉天使的网页链接。
+                    </b>
+                </p>
+                <a href="https://play.games.dmm.co.jp/game/lilyange" target="_blank">りりぃあんじぇ - FANZA GAMES</a>
+                <img class="Screenshots" src="/img/translate-lily-ange2/Login_DMM.webp" alt="Login_DMM">
+                <p class="title">
+                    <b>
+                        可以勾选自动登录。然后你就可以Ctrl+D收藏这个页面了。
+                        下次就可以直接进游戏了。
+                    </b>
+                </p>
+                <img class="Screenshots" src="/img/translate-lily-ange2/Playgame.webp" alt="Playgame">
+                <p class="title"><b>等待游戏加载。剩下的流程你应该知道怎么走了。（如果你有在手机上玩过的话。）</b></p>
+                <img class="Screenshots" src="/img/translate-lily-ange2/gaming.webp" alt="gaming">
+                <p class="title"><b>大功告成！接下来随便找一段剧情翻译看看。就拿故事开头的那一幕。</b></p>
+                <img class="Screenshots" src="/img/translate-lily-ange2/Tran01.webp" alt="Tran01">
+                <img class="Screenshots" src="/img/translate-lily-ange2/Tran02.webp" alt="Tran02">
+                <img class="Screenshots" src="/img/translate-lily-ange2/Tran03.webp" alt="Tran03">
+                <img class="Screenshots" src="/img/translate-lily-ange2/Tran04.webp" alt="Tran04">
+                <img class="Screenshots" src="/img/translate-lily-ange2/Tran05.webp" alt="Tran05">
+                <img class="Screenshots" src="/img/translate-lily-ange2/Tran06.webp" alt="Tran06">
+                <img class="Screenshots" src="/img/translate-lily-ange2/Tran07.webp" alt="Tran07">
+                <img class="Screenshots" src="/img/translate-lily-ange2/Tran08.webp" alt="Tran08">
+                <P class="title"><b>可以看到翻译的效果还是很不错的。</b></P>
+                <P class="title"><b>当然有时候OCR识别不一定准确可能导致翻译效果大打折扣。你也可以手动输入原文进行翻译。在Windows添加日语键盘或是其他日语输入法即可输入日语。</b></P>
+                <P class="title"><b>不过，我认为Grok的翻译效果会更好。当然国外大模型的配置也麻烦一些。下面是游戏的原文和翻译对照。（Grok4.1翻译）</b></P>
+                <p class="title">
+                    <b>原文日文</b><br>
+                    むかしむかし&nbsp;この&nbsp;せかい&nbsp;が&nbsp;まだなかったころ<br>
+                    なにもない&nbsp;くうかんに&nbsp;かみさまが&nbsp;うまれました<br>
+                    かみさまは&nbsp;おおきなひかりを&nbsp;つくりだし<br>
+                    ちいさく&nbsp;くだきました<br>
+                    みなさんがすんでいる&nbsp;このほし&nbsp;そらにまた<br>
+                    たく&nbsp;ほしがうまれたのです<br>
+                    ちいさなひかりを&nbsp;けさないよう<br>
+                    ちいさく&nbsp;ゆりのように はかないてんしが<br>
+                    うまれました<br>
+                    それが&nbsp;りりあんです<br>
+                    <b>中文翻译</b><br>
+                    很久很久以前，在这个世界还不存在的时候……<br>
+                    在什么都没有的虚空中，神明诞生了。<br>
+                    神明创造出了巨大的光芒，<br>
+                    然后把它轻轻地、一点一点地、碎开了。<br>
+                    大家居住的这颗星星的天空里，又……<br>
+                    诞生了无数的星星。<br>
+                    为了不让那些小小的光芒熄灭……<br>
+                    小小的、像百合花一样脆弱的天使，<br>
+                    诞生了。<br>
+                    那就是……莉莉安。<br>
+                </p>
+
+                <h3>总结要点：</h3>
+
+                <ol>
+                    <li>注册团子翻译器。</li>
+                    <li>注册Deekseep开放平台。</li>
+                    <li>配置API。</li>
+                    <li>使用代理访问FANZA GAMES</li>
+                    <li>翻译游戏原文。</li>
+                </ol>
+
+                <p>
+                    好了，这次图文教程就到此结束了。如果你在配置API部分遇到任何困难你可以通过以下的联系方式联系我。其他的国内大模型API配置方法也基本相同。
+                </p>
+                <p>
+                    如果需要国外大模型的配置我也会出一期教程（看反馈人数）。
+                    如果你还没有学会魔法上网那么我下一期文章会教你如何在电脑上使用代理访问FANZA GAMES。
+                    最后玩到FANZA上的游戏。包括《闪耀星骑士》、《糖果冲突》、《美少女花骑士》等。感谢你看到这！敬请期待下一篇文章。
+                </p>
+                <p>联系邮箱：<a href="mailto:liyi@liyigarden.xyz">liyi@liyigarden.xyz</a></p>
+
+
+                <!-- ===== 文章正文结束 ===== -->
+
+            </article>
+        </main>
+
+        <footer class="footer">
+            <div>© <span id="y"></span> liyigarden.xyz · <a href="/">首页</a></div>
+        </footer>
+
+    </div>
+
+    <script>
+        document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+
+</body>
+
+</html>
