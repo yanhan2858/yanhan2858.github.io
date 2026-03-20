@@ -1,0 +1,12 @@
+.github-link {
+    text-decoration: none;
+    color: #0366d6;
+  }
+  
+  .github-link:hover {
+    text-decoration: underline;
+  }
+  
+  .github-link svg {
+    color: #333;
+  }
