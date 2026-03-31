@@ -96,7 +96,8 @@
                 <p class="title">
                     <b>创建API Key，往里面填入基本信息。</b>
                 </p>
-                <img class="Screenshots" src="/img/Dango_translator_use_Qwen/input_info.webp" width="500" alt="input_info">
+                <img class="Screenshots" src="/img/Dango_translator_use_Qwen/input_info.webp" width="500"
+                    alt="input_info">
                 <p class="title">
                     <b>复制API Key，当然你也可以下载保存。</b>
                 </p>
@@ -108,7 +109,8 @@
                 <p class="title">
                     <b>填写样式如下图所示。</b>
                 </p>
-                <img class="Screenshots" src="/img/Dango_translator_use_Qwen/setting_API_Key.webp" width="500" alt="setting_API_Key">
+                <img class="Screenshots" src="/img/Dango_translator_use_Qwen/setting_API_Key.webp" width="500"
+                    alt="setting_API_Key">
                 <p class="title">
                     <b>这里特别强调一下，接口的请求地址不能用下图中的这个！</b>
                 <p>https://dashscope.aliyuncs.com/compatible-mode/v1</p>
@@ -126,47 +128,33 @@
                 <p class="title">
                     <b>这个就能跑通了。顺便一提，咱之前用的提示词是下面这个。</b>
                 </p>
-                <textarea id="textBox" rows="20" cols="50">
-你是一名资深成人游戏汉化组主翻，精通日语和中文，对日本成人游戏的色情描写手法极为了解。
+                <textarea class="big-box" id="t1">
+                    你是一名资深成人游戏汉化组主翻，精通日语和中文，对日本成人游戏的色情描写手法极为了解。
             
-任务：将下面的日文文本翻译成简体中文。
-            
-要求（必须严格遵守，按优先级排序）：
-1. 绝对保留所有性暗示、淫语、下流描写、拟声词、生理反应等一切色情元素，绝不能删减、淡化，不能用“……”或“某部位”代替。
-2. 直译优先，但不能生硬。必须使用中文玩家最熟悉、最刺激的表达方式（参考经典汉化组如kDays、绿茶、Whirlpool汉化等的用词风格）。
-3. 淫语部分请使用网络黄游汉化中最常见的直白词汇，例如：
-   - おまんこ → 小穴/骚穴/肉穴（根据语境选最合适）
-   - ちんぽ → 肉棒/鸡巴/大肉棒
-   - イく → 要去了/高潮了/要泄了
-  - あん♡あん♡ → 啊♡嗯♡ / 哈啊♡哈啊♡
-   - 中に出して → 射里面/中出我/全部射进来
-4. 保留所有拟声词并翻译成中文玩家习惯的写法（如 くちゅくちゅ → 咕啾咕啾，ぴちゃぴちゃ → 啪嚓啪嚓，ずちゅずちゅ → 滋啾滋啾）
-5. 语气词、语感、节奏要和日文几乎一致，娇喘、羞耻、傲娇、抖M等角色性格不能变。
-6. 绝对不要加任何解释、备注、审查，直接只输出翻译后的中文文本。
-                                    
-日文原文：
-"""
-{paste your Japanese text here}
-"""
-                    
-</textarea>
+                    任务：将下面的日文文本翻译成简体中文。
+                                
+                    要求（必须严格遵守，按优先级排序）：
+                    1. 绝对保留所有性暗示、淫语、下流描写、拟声词、生理反应等一切色情元素，绝不能删减、淡化，不能用“……”或“某部位”代替。
+                    2. 直译优先，但不能生硬。必须使用中文玩家最熟悉、最刺激的表达方式（参考经典汉化组如kDays、绿茶、Whirlpool汉化等的用词风格）。
+                    3. 淫语部分请使用网络黄游汉化中最常见的直白词汇，例如：
+                       - おまんこ → 小穴/骚穴/肉穴（根据语境选最合适）
+                       - ちんぽ → 肉棒/鸡巴/大肉棒
+                       - イく → 要去了/高潮了/要泄了
+                      - あん♡あん♡ → 啊♡嗯♡ / 哈啊♡哈啊♡
+                       - 中に出して → 射里面/中出我/全部射进来
+                    4. 保留所有拟声词并翻译成中文玩家习惯的写法（如 くちゅくちゅ → 咕啾咕啾，ぴちゃぴちゃ → 啪嚓啪嚓，ずちゅずちゅ → 滋啾滋啾）
+                    5. 语气词、语感、节奏要和日文几乎一致，娇喘、羞耻、傲娇、抖M等角色性格不能变。
+                    6. 绝对不要加任何解释、备注、审查，直接只输出翻译后的中文文本。
+                                                        
+                    日文原文：
+                    """
+                    {paste your Japanese text here}
+                    """
+                </textarea>
+                <button onclick="navigator.clipboard.writeText(document.getElementById('t1').value)">
+                    复制
+                </button>
 
-                <br><br>
-
-                <button onclick="copyText()">复制</button>
-
-                <script>
-                    function copyText() {
-                        const textArea = document.getElementById("textBox");
-
-                        textArea.select();
-                        textArea.setSelectionRange(0, 99999);
-
-                        document.execCommand("copy");
-
-                        alert("复制成功！");
-                    }
-                </script>
                 <p class="title">
                     <b>由于平台存在敏感词检测，这个提示词会触发内容审查随后阻断导致无法调用API。
                         如下图。所以你没办法用百炼控制台里边的模型翻译R18内容。
@@ -174,47 +162,33 @@
                     </b>
                 </p>
                 <img class="Screenshots" src="/img/Dango_translator_use_Qwen/API_Error.webp" alt="API_Error">
-                <textarea id="textBox" rows="20" cols="50">
-你是一名资深日文游戏本地化专家，精通日语与简体中文，熟悉剧情文本、角色对话以及情绪表达的还原。
+                <textarea class="big-box" id="t2">
+                    你是一名资深日文游戏本地化专家，精通日语与简体中文，熟悉剧情文本、角色对话以及情绪表达的还原。
 
-任务：将提供的日文文本翻译为自然、流畅且符合中文玩家阅读习惯的简体中文。
-
-要求：
-1. 忠实还原原文语义与细节，包括人物情绪、语气变化、动作描写及声音表现。
-2. 在保证准确性的前提下，使译文符合中文语境下的表达习惯，读起来顺畅自然。
-3. 保留原文中的语气词、重复表达及节奏感，使角色表现力一致。
-4. 对拟声词进行合理本地化，使其符合中文常见表现方式。
-5. 不对原文内容进行删减或额外扩展。
-
-输出要求：
-- 仅输出翻译后的结果
-- 保持输入结构（如JSON）不变
-
-输入：
-{your_json_here}
+                    任务：将提供的日文文本翻译为自然、流畅且符合中文玩家阅读习惯的简体中文。
                     
-                    </textarea>
+                    要求：
+                    1. 忠实还原原文语义与细节，包括人物情绪、语气变化、动作描写及声音表现。
+                    2. 在保证准确性的前提下，使译文符合中文语境下的表达习惯，读起来顺畅自然。
+                    3. 保留原文中的语气词、重复表达及节奏感，使角色表现力一致。
+                    4. 对拟声词进行合理本地化，使其符合中文常见表现方式。
+                    5. 不对原文内容进行删减或额外扩展。
                     
-                                    <br><br>
+                    输出要求：
+                    - 仅输出翻译后的结果
+                    - 保持输入结构（如JSON）不变
                     
-                                    <button onclick="copyText()">复制</button>
-                    
-                                    <script>
-                                        function copyText() {
-                                            const textArea = document.getElementById("textBox");
-                    
-                                            textArea.select();
-                                            textArea.setSelectionRange(0, 99999);
-                    
-                                            document.execCommand("copy");
-                    
-                                            alert("复制成功！");
-                                        }
-                                    </script>
+                    输入：
+                    {your_json_here}
+                </textarea>
+                <button onclick="navigator.clipboard.writeText(document.getElementById('t2').value)">
+                    复制
+                </button>
                 <p class="title">
                     <b>我们不需要删除原有的提示词，直接在原有提示词的基础上粘贴上新的提示词即可。如下图所示。</b>
                 </p>
-                <img class="Screenshots" src="/img/Dango_translator_use_Qwen/Addition_Prompt.webp" width="500" alt="Addition_Prompt">
+                <img class="Screenshots" src="/img/Dango_translator_use_Qwen/Addition_Prompt.webp" width="500"
+                    alt="Addition_Prompt">
                 <p class="title">
                     <b></b>
                 </p>
@@ -222,15 +196,18 @@
                 <p class="title">
                     <b>粘贴完毕后，我们点击测试确保API调用正常。</b>
                 </p>
-                <img class="Screenshots" src="/img/Dango_translator_use_Qwen/Open_translation.webp" alt="Open_translation">
+                <img class="Screenshots" src="/img/Dango_translator_use_Qwen/Open_translation.webp"
+                    alt="Open_translation">
                 <p class="title">
                     <b>前面提到虽然有200个可用模型可用调用。每个模型100万Token额度。</b>
                 </p>
                 <img class="Screenshots" src="/img/Dango_translator_use_Qwen/All_model.webp" alt="All_model">
                 <p class="title">
                     <b>但是不是所有模型都可以在团子翻译器中完成翻译任务。所以需要你自行测试可用的模型。
-                        目前<a href="https://bailian.console.aliyun.com/cn-beijing?tab=model#/model-market/detail/qwen3-max" target="_blank">Qwen3-MAX</a>，
-                        以及<a href="https://bailian.console.aliyun.com/cn-beijing?tab=model#/model-market/detail/qwen3-vl-plus" target="_blank">Qwen3-Vl-Plus</a>均可用。
+                        目前<a href="https://bailian.console.aliyun.com/cn-beijing?tab=model#/model-market/detail/qwen3-max"
+                            target="_blank">Qwen3-MAX</a>，
+                        以及<a href="https://bailian.console.aliyun.com/cn-beijing?tab=model#/model-market/detail/qwen3-vl-plus"
+                            target="_blank">Qwen3-Vl-Plus</a>均可用。
                         图像生成模型不能用于翻译。</b>
                 </p>
                 <img class="Screenshots" src="/img/Dango_translator_use_Qwen/model_info.webp" alt="model_info">
@@ -239,9 +216,11 @@
                 </p>
                 <img class="Screenshots" src="/img/Dango_translator_use_Qwen/Open_limited.webp" alt="Open_limited">
                 <p class="title">
-                    <b>全部操作完毕后我们就可以上游戏测试了。这里我以<a href="https://play.games.dmm.co.jp/game/flower-x" target="_blank">花骑士</a>为例。</b>
+                    <b>全部操作完毕后我们就可以上游戏测试了。这里我以<a href="https://play.games.dmm.co.jp/game/flower-x"
+                            target="_blank">花骑士</a>为例。</b>
                 </p>
-                <img class="Screenshots" src="/img/Dango_translator_use_Qwen/Translation_games.webp" alt="Translation_games">
+                <img class="Screenshots" src="/img/Dango_translator_use_Qwen/Translation_games.webp"
+                    alt="Translation_games">
                 <p class="title">
                     <b>可以看到千问的翻译效果还是很好的！当然翻译过程中你可能会遇到以下问题。</b>
                 </p>
@@ -276,10 +255,11 @@
                 <p class="title">
                     <b>感谢以下项目的贡献：<br></b>
                     <a href="https://github.com/PantsuDango/Dango-Translator" target="_blank" class="github-link">
-                      
-                      <!-- GitHub SVG 图标 -->
-                      <svg height="16" width="16" viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 4px;">
-                        <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 
+
+                        <!-- GitHub SVG 图标 -->
+                        <svg height="16" width="16" viewBox="0 0 16 16"
+                            style="vertical-align: middle; margin-right: 4px;">
+                            <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 
                         6.53 5.47 7.59.4.07.55-.17.55-.38 
                         0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
                         -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
@@ -294,22 +274,26 @@
                         0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 
                         1.48 0 1.07-.01 1.93-.01 2.2 
                         0 .21.15.46.55.38A8.01 8.01 0 0 0 16 
-                        8c0-4.42-3.58-8-8-8z"/>
-                      </svg>
-                  
-                      Dango-Translator
+                        8c0-4.42-3.58-8-8-8z" />
+                        </svg>
+
+                        Dango-Translator
                     </a>
                     <span class="desc">用于文本翻译支持</span>
                 </p>
                 <p class="note">
-                    本文翻译能力基于<a href="https://qwen.ai/home" target="_blank"><img src="https://yqintl.alicdn.com/5d2f324a4d8b9db51cbb31b1577682455c25fb37.png" alt="qwen" width="50px">Qwen</a>大模型 API 实现。
+                    本文翻译能力基于<a href="https://qwen.ai/home" target="_blank"><img
+                            src="https://yqintl.alicdn.com/5d2f324a4d8b9db51cbb31b1577682455c25fb37.png" alt="qwen"
+                            width="50px">Qwen</a>大模型 API 实现。
                 </p>
                 <p class="note">
-                    游戏来源于 <a href="https://games.dmm.co.jp/" target="_blank"><img src="/img/translate-lily-ange2/FANZA_GAME_ICON.webp" alt="FANZA_GAME_ICON" width="50px">FANZA GAMES（DMM 旗下平台）。</a>
+                    游戏来源于 <a href="https://games.dmm.co.jp/" target="_blank"><img
+                            src="/img/translate-lily-ange2/FANZA_GAME_ICON.webp" alt="FANZA_GAME_ICON"
+                            width="50px">FANZA GAMES（DMM 旗下平台）。</a>
                 </p>
                 <b>注意：</b>
-                    本文仅为技术演示用途，请遵守当地法律法规及相关平台使用条款。
-                </div>
+                本文仅为技术演示用途，请遵守当地法律法规及相关平台使用条款。
+
                 <p>联系邮箱：<a href="mailto:liyi@liyigarden.xyz">liyi@liyigarden.xyz</a></p>
 
                 <!-- ===== 文章正文结束 ===== -->
@@ -320,7 +304,7 @@
         <footer class="footer">
             <div>© <span id="y"></span> liyigarden.xyz · <a href="/">首页</a></div>
         </footer>
-
+    </div>
     </div>
 
     <script>

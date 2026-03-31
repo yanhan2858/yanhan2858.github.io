@@ -184,3 +184,9 @@ code {
 .github-link svg {
   color: #333;
 }
+
+.big-box {
+  width: 100%;
+  height: 400px;
+  resize: vertical; /* 允许上下拖动 */
+}
