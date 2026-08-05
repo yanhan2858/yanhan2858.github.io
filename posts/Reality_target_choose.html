@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+  <title>关于Reality Target选择的一些个人见解</title>
+
+
+  <meta name="description" content="关于Reality Target选择的一些个人见解" />
+
+
+  <link rel="canonical" href="https://liyigarden.xyz/posts/Reality target choose.html" />
+
+  <link rel="stylesheet" href="/CSS/mainstyle.css" />
+  <link rel="icon" href="/favicon.ico" />
+
+  <!-- 社交媒体分享 -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="关于Reality Target选择的一些个人见解" />
+  <meta property="og:description" content="关于Reality Target选择的一些个人见解" />
+  <meta property="og:url" content="https://liyigarden.xyz/posts/Reality target choose.html" />
+  <meta property="og:image" content="https://liyigarden.xyz/assets/og.png" />
+
+</head>
+
+<body>.
+  <div class="container">
+
+    <header class="site-header">
+      <p class="site-title">
+        <a href="/" style="color:inherit;text-decoration:none">liyigarden</a>
+      </p>
+
+      <nav class="nav">
+        <a href="/">← 返回首页</a>
+      </nav>
+    </header>
+
+    <main>
+      <article>
+
+
+        <p class="meta">
+          <time datetime="2026-08-01">2026-08-01</time>
+        </p>
+
+
+        <h1>关于Reality Target选择的一些个人见解</h1>
+
+
+
+        <p>
+          <b>免责声明：</b><br>
+          本文适用于<u>Xray的服务端Reality</u>，文章提到的部分内容可能不适用于<u>Sing-box服务端的Reality</u>。<br>
+          同时，文章提到的Target建议可能不适用于机场等大规模的代理搭建。<br>
+          本文为<u>个人经验杂谈</u>，仅供参考。请遵守所在地区的法律法规。<br>
+          阅读时还请注意文章的时效性。<br>
+        </p>
+
+        <p>
+          Reality新版的字段为Target，老版本字段是叫Dest。为适应新版的语义建议在Reality服务端配置时使用Target作为字段。<br>
+          文章中提到的Target均指Reality的新版本语义。<br>
+        </p>
+        <p class="title"><b>关于Target的选择背景</b></p>
+        <p>对于新手朋友来说Target的选择这可能是比较头疼的问题。诸如许多教程都推荐新手使用通用解法。<br>
+          即类似 <a href="https://www.apple.com" target="_blank">www.apple.com</a>，<a href="https://www.bing.com"
+            target="_blank">www.bing.com</a>, <a href="https://www.microsoft.com"
+            target="_blank">www.microsoft.com</a>等知名的站点作为伪装。
+          通用解法固然好用，毕竟开箱即用不需要考虑这么多。<br>
+          这类知名Target本身就有着天然的流量大、握手稳定等特征。
+        </p>
+        <p>但是对我个人而言这可能不是最优的解法。毕竟Reality并没有解决ASN和IP段归属的问题。<br>
+          如果使用Microsoft作为Target的话。服务器会借用Microsoft的握手作为伪装。<br>
+          并且该Target站的IP段包括ASN是完全公开可查的。对于审查者而言在一台不知名的ASN和IP段上出现了Microsoft的握手会显得有些奇怪。<br>
+          换句话说：Microsoft或许不会把服务部署在一台不知名的VPS上。<br>
+          截止目前为止还没有观察到审查者大规模开始使用ASN和IP段来关联Reality的特征。
+        </p>
+        <p>为了尽可能的降低统计学上的特征。应该寻找其他符合要求的站点作为Target来避免被连坐。</p>
+        <p class="title"><b>Target的要求和注意事项</b></p>
+        <ol>
+          <li>目标站点支持TLS1.3。</li>
+          <li>目标站点可以直连，没有被封锁。同时握手连接稳定。</li>
+          <li>密钥交换算法推荐X25519MLKEM768,X25519。</li>
+          <li>可以是CDN站，独立站也没问题。（如果你找得到）</li>
+          <li>站点的选择类型不限，可以是企业官网、游戏官网、动画网站、漫画网站、电影网站、购物网站等。</li>
+          <li>站点有一定真实业务，不涉及敏感业务。包括：成人内容、政治相关。</li>
+          <li>Target可以是子域名，推荐使用大型站点下的子域名。</li>
+          <li>子域名不一定非得是浏览器打开有内容才行。例如：api.xxx.com, cdn.xxx.com, update.xxx.com都可以作为Target，确保握手稳定即可。</li>
+          <li>站点有一定的知名度，有真实访客最好，不能过于小众。</li>
+          <li>尽量做地域对齐。例如：日本机器用日本站点、美国机器用美国站点等。</li>
+          <li>如果机器只有IPV6，最好找支持IPV6的Target作为站点。</li>
+        </ol>
+        <p>下面我会逐条展开详细的说明。</p>
+        <p class="title"><b>目标站点支持TLS1.3。</b></p>
+        <p>Reality 的握手依赖 TLS 1.3，因此 Target 必须支持 TLS 1.3。<br>
+          (别作死用TLS 1.2，就算你找到TLS 1.2的Target也别用)
+        </p>
+        <p>我会介绍几种方法快速的辨别目标站点是否支持TLS1.3包括移动端、PC端、服务端。</p>
+        <p class="title"><b>首先是移动端：</b></p>
+        <p>
+          手机安装Edge或者是Chrome浏览器。下面以Chrome浏览器为例。<br>
+          打开浏览器后输入域名访问站点。
+        </p>
+
+        <img class="Screenshots" src="/img/Reality_target_choose/Browser.webp" alt="browser_info">
+
+        <p>点开浏览器地址栏的锁头选择安全选项卡就能直接看到了。</p>
+        <img class="Screenshots" src="/img/Reality_target_choose/Browser_connection.webp" alt="Browser_connection_info">
+        <img class="Screenshots" src="/img/Reality_target_choose/connection_TLS_information.webp" alt="TLS_information">
+        <p>同时，在下方也能观察到密钥交换算法。<br>
+          移动端的Edge浏览器操作也是一样的。<br>
+          访问站点后点开地址栏的锁头就能直接查看。如下图：<br>
+        </p>
+        <img class="Screenshots" src="/img/Reality_target_choose/edge_info.webp" width="250px"
+          alt="edge_connection_info">
+        <p class="title"><b>然后是PC端：</b></p>
+        <p>打开Edge浏览器访问目标站点。按F12打开开发人员工具。或是鼠标右键点击检查。确保Dev Tools已经打开。如下图：</p>
+        <img class="Screenshots" src="/img/Reality_target_choose/target04.webp" alt="target_example">
+        <p>点击工具栏的加号添加安全选项卡</p>
+        <img class="Screenshots" src="/img/Reality_target_choose/target05.webp" alt="target05_example">
+        <p>切换到安全选项卡后请务必刷新页面。按F5或者是点击鼠标右键。然后我们点击主要来源即可看到当前连接使用的TLS版本和密钥交换算法。</p>
+        <img class="Screenshots" src="/img/Reality_target_choose/target06.webp" alt="target06_example">
+        <p>Chrome浏览器操作方法如下：</p>
+        <img class="Screenshots" src="/img/Reality_target_choose/target01.webp" alt="target01_example">
+        <img class="Screenshots" src="/img/Reality_target_choose/target02.webp" alt="target02_example">
+        <img class="Screenshots" src="/img/Reality_target_choose/target03.webp" alt="target03_example">
+        <p class="title"><b>服务端：</b></p>
+        <p>确保你的服务器已经安装Xray。<br>
+          SSH客户端我使用的是<a href="https://termius.com/index.html" target="_blank">Termius</a> ，你也可以自行使用其他的SSH客户端连接服务器。<br>
+          使用这个命令即可直接测试目标站点的TLS版本和密钥交换算法。<br>
+        </p>
+        <p><b>xray tls ping Target</b></p>
+        <p>Target换成你要测试的站点。</p>
+        <p>如下图：</p>
+        <img class="Screenshots" src="/img/Reality_target_choose/target_test01.webp" alt="test_target01">
+        <img class="Screenshots" src="/img/Reality_target_choose/target_test02.webp" alt="test_target02">
+        <p><b>目标站点可以直连，没有被封锁。同时握手连接稳定。</b></p>
+        <p>
+          确保Reality使用的Target没有被SNI阻断或是被墙。使用被干扰的站点会导致Reality握手失败。因此，使用一个稳定的站点做Target是个很好的选择。对于一些被干扰的Target例如：store.steampowered.com、
+          github.com。虽然这两站点访问量非常大，知名度也非常高。但是，GitHub和steam的连接不太稳定，做Target不太推荐。
+          当然，最好选一些能在本地打开速度快一点的站点。如果站点转老半天也加载不出来也不太合适。
+        </p>
+        <p>
+          <b>密钥交换算法推荐X25519MLKEM768,X25519。</b>
+        </p>
+        <p>接下来就是关于Target站的密钥交换算法了。一般来说TLS1.3的站点都是X25519。CDN站一般是X25519MLKEM768。<br>
+          条件允许更推荐使用后者。后者是混合后量子密钥交换，安全性更高。当然这个不强制要求。X25519也是可以的，目前的密钥交换算法也足够安全。量子计算机还不能够破解。
+          那么有没有站点用的不是X25519或是X25519MLKEM768作为密钥交换算法呢？<br>
+          当然是有的！但是，不太常见。<br>
+        </p>
+        <img class="Screenshots" src="/img/Reality_target_choose/Target_example.webp" alt="target_example_KMS">
+        <P>不过，目前尚不清楚Reality使用其他的密钥交换算法造成的可能影响。
+          但是其他的密钥交换算法在TLS1.3中并不是很常见。至少我找了将近70个站点作为合适的Target候选。
+          大部分的站点均使用X25519或是X25519MLKEM768。
+        </P>
+        <p><b>Target可以是CDN站，独立站也没问题。</b></p>
+        <p>至少目前来看多数的知名站点都使用CDN，独立站是比较少的。CDN站作为Target没有问题。
+          关于Reality使用Cloudflare CDN站存在部分争议。但是目前来看个人使用问题不大。
+          如果你担心这个那可以使用Amazon的站点。或是其他的CDN站点。
+        </p>
+        <p>
+          <b>站点的选择类型不限，可以是企业官网、游戏官网、动画网站、漫画网站、电影网站等。</b>
+        </p>
+        <p>
+          也不止上述提到的站点类型，你可以根据自己的喜好选择。只要站点符合Reality的要求即可。在允许范围之内你可以自由发挥。
+        </p>
+        <p>
+          <b>站点有一定真实业务，不涉及敏感业务。包括：成人内容、政治相关。</b>
+        </p>
+        <p>
+          理论上讲如果站点有真实的业务那么它会被封锁的几率要更小一些。
+          同样的，包含成人内容的站点或是其他敏感内容的站点可能会被封锁。为避免连坐，尽量选择业务合规的站点作为Target。
+        </p>
+        <p>
+          <b>Target可以是子域名，推荐使用大型站点下的子域名。</b>
+        </p>
+        <p>
+          这点对于刚接触Reality的朋友来说确实有些惊讶。事实上一个大型的站点旗下可能包含了许多的子域名。
+          只要子域名支持TLS1.3那么它同样可以作为Target使用。我个人更倾向于使用子域名。流量更大更杂乱同时流量特征较为真实。
+        </p>
+        <p>
+          <b>子域名不一定非得是浏览器打开有内容才行。例如：api.xxx.com, cdn.xxx.com, update.xxx.com都可以作为Target，确保握手稳定即可。</b>
+        </p>
+        <p>事实上Reality不强制要求Target用浏览器打开后有内容。
+          哪怕你用的CDN的子域名做Target浏览器打开虽然是404。但是，只要确保子域名符合Reality的要求即可。个人经验来看，效果还不错。
+        </p>
+        <p>
+          <b>站点有一定的知名度，有真实访客最好，不能过于小众。</b>
+        </p>
+        <p>
+          关于这点有待考究。目前观察到的现象是使用过于小众的站点可能会导致Reality被针对。具体表现为：线路连接正常，速度跑不上去。或者是莫名其妙没速度。为保证稳定选择有一定真实访客的站点是个最佳选择。
+        </p>
+        <p>
+          <b>尽量做地域对齐。例如：日本机器用日本站点、美国机器用美国站点等。</b>
+        </p>
+        <p>这个要求不强制。如果站点本身就是CDN站。那么你的握手往往会选择边缘节点完成。CDN站可能遍布全球。当然，做好地域对齐的话伪装效果会更好！目前来看影响比较有限。</p>
+        <p>
+          <b>如果机器只有IPV6，最好找支持IPV6的Target作为站点。</b><br>
+        </p>
+        <p>
+          这个很有必要展开讲讲。如果你的机器属于IPV6
+          ONLY。顾名思义没有IPV4地址。那么你应该找一个支持IPV6的站点。如果站点不支持IPV6，Reality会握手失败导致无法连接。
+          然而难崩的问题在于：如果你是日本机器。想找一个IPV6的日本站点做Target非常困难。多数日本站点仅支持IPV4。即使是CDN站点也只开IPV4。<br>
+          此时，你有两种解决方案来帮助IPV6 ONLY机器的Reality完成握手。<br>
+        </p>
+        <p>
+          首先是<a href="https://github.com/fscarmen/warp-sh" target="_blank">WARP CLI</a>。通过向Cloudflare申请一个WARP
+          IPV4来获得IPV4地址。有了IPV4 Reality就能借助Cloudflare的边缘网络完成对Target的握手。这是第一种办法。
+          顺便一提Cloudflare分配的IPV4只能出站不能入站。所以没有办法走SSH。
+          第二种办法就是借助公共的NAT64服务器。把IPV4转换成特殊的IPV6访问。本质上也是中转。速度不如WARP来的快。
+        </p>
+        <p>
+          推荐的公共NAT64服务器如下：<br>
+          https://nat64.net/
+        </p>
+        <p>不过，以上的两种方案可能存在一定的风险。</p>
+        <p><b>这引出了一个问题：</b></p>
+        <p>
+          一个只有IPV4的DNS A记录Target站点怎么会莫名奇妙出现了AAAA记录的IPV6访问？你访问服务器用的是IPV6。但是Target站点本身并没有IPV6
+          AAAA记录存在。理论上讲如果GFW知道Target站没有AAAA记录它可能会根据这个特征识别Reality。但是仅靠这点也不一定能判断服务器为代理。NAT64流量在互联网中也有存在。
+          目前无法考证。因为握手是在海外完成的,GFW无法进行观测。没有研究表明GFW会尝试查询Target站的DNS记录。截至目前，该方案依然有效。
+        </p>
+        <p>建议使用IPV4+IPV6双栈的站点作为Target。</p>
+        <p>以上情况仅针对只有IPV6的服务器在使用IPV4 Target的场景。</p>
+        <p>在服务器拥有IPV4的情况下Reality会通过IPV4与Target站完成握手。即使是NAT IPV4也能够完成握手。哪怕IPV4是被墙的，只要服务器能在海外能连上Target。Reality就能够完成握手，无需担心该问题。</p>
+        <p>
+          <b>文章结尾我最想说的是：Target没有最优解法，每个人都可以不一样。
+            找到最适合自己的就行。我也不会去推荐哪个站点作为Target最好用、伪装最好。
+            封锁往往是有多种因素共同导致的。由于GFW的黑箱性质无法直接认定是Target导致了封锁。
+            文章中仅列举了知名的Target。不作为推荐选项。
+          </b>
+        </p>
+        <p><b>以上仅为个人经验对Reality的讨论。</b></p>
+        <p><b>文章中提到的内容不一定完全适用于读者所在的地区审查情况。</b></p>
+        <p>文章中提到的工具如下：</p>
+        <a href="https://github.com/fscarmen/warp-sh" target="_blank" class="github-link">
+                      
+          <!-- GitHub SVG 图标 -->
+          <svg height="16" width="16" viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 4px;">
+            <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 
+            6.53 5.47 7.59.4.07.55-.17.55-.38 
+            0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+            -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
+            -.01-.53.63-.01 1.08.58 1.23.82.72 1.21
+            1.87.87 2.33.66.07-.52.28-.87.51-1.07
+            -1.78-.2-3.64-.89-3.64-3.95
+            0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12
+            0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 
+            2 .27c1.53-1.04 2.2-.82 
+            2.2-.82.44 1.1.16 1.92.08 
+            2.12.51.56.82 1.27.82 2.15
+            0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 
+            1.48 0 1.07-.01 1.93-.01 2.2 
+            0 .21.15.46.55.38A8.01 8.01 0 0 0 16 
+            8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+      
+          warp-sh
+        </a>
+        <span class="desc">warp-sh</span>
+    </p>
+    
+      <a href="https://termius.com/index.html">Termius</a>
+    
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div>© <span id="y"></span> liyigarden.xyz · <a href="/">首页</a></div>
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+
+</html>
