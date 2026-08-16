@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+  <title>Some Personal Thoughts on Choosing a Reality Target</title>
+
+
+  <meta name="description" content="A personal discussion of choosing a Target for Xray server-side Reality, including common targets, ASN and IP range considerations, and testing methods." />
+
+
+  <link rel="canonical" href="https://liyigarden.xyz/posts/Reality_target_choose_en.html" />
+
+  <link rel="stylesheet" href="/CSS/mainstyle.css" />
+  <link rel="icon" href="/favicon.ico" />
+
+  <!-- Social media sharing -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="liyigarden" />
+  <meta property="og:title" content="Some Personal Thoughts on Choosing a Reality Target" />
+  <meta property="og:description" content="A personal discussion of choosing and testing a Target for Xray server-side Reality." />
+  <meta property="og:url" content="https://liyigarden.xyz/posts/Reality_target_choose_en.html" />
+  <meta property="article:published_time" content="2026-08-15" />
+  <meta property="article:modified_time" content="2026-08-15" />
+  <meta name="twitter:card" content="summary" />
+
+</head>
+
+<body>.
+  <div class="container">
+
+    <header class="site-header">
+      <p class="site-title">
+        <a href="/" style="color:inherit;text-decoration:none">liyigarden</a>
+      </p>
+
+      <nav class="nav">
+        <a href="/">← Back to home</a>
+      </nav>
+    </header>
+
+    <main>
+      <article>
+
+
+        <p class="meta">
+          <time datetime="2026-08-15">2026-08-15</time>
+        </p>
+
+
+        <h1>Some Personal Thoughts on Choosing a Reality Target</h1>
+
+
+
+        <p>
+          <b>AI translation notice:</b><br>
+          This English version was translated from the original Chinese article with AI assistance. The original Chinese version is the authoritative source; please refer to it if any wording is unclear.<br>
+        </p>
+
+        <p>
+          <b>Disclaimer:</b><br>
+          This article applies to <u>server-side Reality in Xray</u>. Some of the information here may not apply to <u>server-side Reality in Sing-box</u>.<br>
+          The Target suggestions in this article may also be unsuitable for large-scale proxy deployments, such as commercial proxy services.<br>
+          This is a <u>collection of personal observations</u>, provided for reference only. Please comply with the laws and regulations in your area.<br>
+          Please also keep the publication date in mind when reading.<br>
+        </p>
+
+        <p>
+          In newer versions of Reality, the field is named Target; older versions called it Dest. To match the newer terminology, it is recommended to use Target in server-side Reality configurations.<br>
+          Every mention of Target in this article uses the newer Reality terminology.<br>
+        </p>
+        <p class="title"><b>Why Target selection matters</b></p>
+        <p>For newcomers, choosing a Target can be a headache. Many guides recommend a general-purpose approach for beginners.<br>
+          That is, using well-known sites such as <a href="https://www.apple.com" target="_blank">www.apple.com</a>, <a href="https://www.bing.com"
+            target="_blank">www.bing.com</a>, or <a href="https://www.microsoft.com"
+            target="_blank">www.microsoft.com</a> as camouflage.
+          This general approach certainly works: it is ready to use and requires little thought.<br>
+          Well-known Targets naturally tend to have high traffic and stable handshakes.
+        </p>
+        <p>For me personally, however, this may not be the best solution. Reality does not resolve questions of ASN and IP-range attribution.<br>
+          If Microsoft is used as a Target, the server borrows Microsoft's handshake as camouflage.<br>
+          Yet the Target's IP ranges and ASN are publicly searchable. To an observer, a Microsoft handshake appearing on an unknown ASN and IP range may look unusual.<br>
+          Put another way, Microsoft is unlikely to deploy its service on an unknown VPS.<br>
+          At the time of writing, I have not observed large-scale attempts to correlate Reality characteristics through ASNs and IP ranges.
+        </p>
+        <p>To reduce statistical fingerprints as much as possible, it may be better to look for other sites that meet the requirements and avoid being implicated by association.</p>
+        <p class="title"><b>Target requirements and considerations</b></p>
+        <ol>
+          <li>The Target supports TLS 1.3.</li>
+          <li>The Target is reachable directly, is not blocked, and provides a stable handshake connection.</li>
+          <li>X25519MLKEM768 or X25519 is recommended for the key-exchange algorithm.</li>
+          <li>It may be a CDN-backed site or an independently hosted site. (If you can find one.)</li>
+          <li>The site type is unrestricted: it may be a corporate site, game site, animation site, manga site, movie site, shopping site, and so on.</li>
+          <li>The site should have a genuine business and should not involve sensitive content, including adult or political content.</li>
+          <li>A Target may be a subdomain; subdomains of large sites are recommended.</li>
+          <li>A subdomain does not have to show content when opened in a browser. For example, api.xxx.com, cdn.xxx.com, and update.xxx.com can all be Targets, as long as the handshake is stable.</li>
+          <li>The site should have some recognition and ideally real visitors; it should not be too niche.</li>
+          <li>Try to align regions. For example, use a Japanese site for a Japanese server and a US site for a US server.</li>
+          <li>If the server has only IPv6, it is best to choose a Target that supports IPv6.</li>
+        </ol>
+        <p>I will explain these points one by one below.</p>
+        <p class="title"><b>The Target supports TLS 1.3.</b></p>
+        <p>Reality's handshake depends on TLS 1.3, so the Target must support TLS 1.3.<br>
+          (Do not use TLS 1.2. Even if you find a TLS 1.2 Target, do not use it.)
+        </p>
+        <p>I will introduce several quick ways to determine whether a Target supports TLS 1.3, on mobile, desktop, and the server.</p>
+        <p class="title"><b>First, on mobile:</b></p>
+        <p>
+          Install Edge or Chrome on your phone. Chrome is used as the example below.<br>
+          Open the browser, enter the domain name, and visit the site.
+        </p>
+
+        <img class="Screenshots" src="/img/Reality_target_choose/Browser.webp" alt="browser_info">
+
+        <p>Open the lock icon in the address bar and select the security tab to see the information directly.</p>
+        <img class="Screenshots" src="/img/Reality_target_choose/Browser_connection.webp" alt="Browser_connection_info">
+        <img class="Screenshots" src="/img/Reality_target_choose/connection_TLS_information.webp" alt="TLS_information">
+        <p>You can also see the key-exchange algorithm below.<br>
+          The process is the same in Edge on mobile.<br>
+          After visiting the site, open the lock icon in the address bar to view it directly, as shown below:<br>
+        </p>
+        <img class="Screenshots" src="/img/Reality_target_choose/edge_info.webp" width="250px"
+          alt="edge_connection_info">
+        <p class="title"><b>Then, on desktop:</b></p>
+        <p>Open the Target site in Edge. Press F12 to open Developer Tools, or right-click and choose Inspect. Make sure DevTools is open, as shown below:</p>
+        <img class="Screenshots" src="/img/Reality_target_choose/target04.webp" alt="target_example">
+        <p>Click the plus sign on the toolbar to add the Security tab.</p>
+        <img class="Screenshots" src="/img/Reality_target_choose/target05.webp" alt="target05_example">
+        <p>After switching to the Security tab, be sure to refresh the page. Press F5 or right-click, then select the main origin to see the TLS version and key-exchange algorithm used by the current connection.</p>
+        <img class="Screenshots" src="/img/Reality_target_choose/target06.webp" alt="target06_example">
+        <p>In Chrome, the procedure is as follows:</p>
+        <img class="Screenshots" src="/img/Reality_target_choose/target01.webp" alt="target01_example">
+        <img class="Screenshots" src="/img/Reality_target_choose/target02.webp" alt="target02_example">
+        <img class="Screenshots" src="/img/Reality_target_choose/target03.webp" alt="target03_example">
+        <p class="title"><b>On the server:</b></p>
+        <p>Make sure Xray is installed on your server.<br>
+          I use <a href="https://termius.com/index.html" target="_blank">Termius</a> as my SSH client, but you can use any other SSH client to connect to the server.<br>
+          Use the following command to test a Target site's TLS version and key-exchange algorithm directly:<br>
+        </p>
+        <p><b>xray tls ping Target</b></p>
+        <p>Replace Target with the site you want to test.</p>
+        <p>For example:</p>
+        <img class="Screenshots" src="/img/Reality_target_choose/target_test01.webp" alt="test_target01">
+        <img class="Screenshots" src="/img/Reality_target_choose/target_test02.webp" alt="test_target02">
+        <p><b>The Target can be reached directly, is not blocked, and has a stable handshake connection.</b></p>
+        <p>
+          Make sure the Target used by Reality is not subject to SNI blocking or other blocking. Using an interfered-with site can cause Reality's handshake to fail. Therefore, a stable site is a good Target choice. Some interfered-with Targets, such as store.steampowered.com and
+          github.com, have very high traffic and recognition. However, GitHub and Steam connections are not especially stable, so I do not recommend them as Targets.
+          Ideally, choose a site that also opens quickly from your local network. A site that takes a very long time to load is not ideal either.
+        </p>
+        <p>
+          <b>X25519MLKEM768 or X25519 is recommended for the key-exchange algorithm.</b>
+        </p>
+        <p>Next, regarding the Target site's key-exchange algorithm: in general, TLS 1.3 sites use X25519, while CDN-backed sites commonly use X25519MLKEM768.<br>
+          Where possible, I recommend the latter. It is a hybrid post-quantum key exchange and offers higher security. This is not mandatory, however. X25519 is also acceptable, and current X25519-based key exchange remains sufficiently secure; quantum computers cannot yet break it.
+          Are there sites that use neither X25519 nor X25519MLKEM768 for TLS 1.3 key exchange?<br>
+          Yes, but they are uncommon.<br>
+        </p>
+        <img class="Screenshots" src="/img/Reality_target_choose/Target_example.webp" alt="target_example_KMS">
+        <P>At present, the possible impact of using other key-exchange algorithms with Reality is unclear.
+          Other key-exchange algorithms are not common in TLS 1.3, however. I looked at nearly 70 sites as potential Targets,
+          and most of them used either X25519 or X25519MLKEM768.
+        </P>
+        <p><b>A Target may be CDN-backed; an independently hosted site is also fine.</b></p>
+        <p>At least for now, most well-known sites use CDNs, while independently hosted sites are relatively uncommon. A CDN-backed site is fine as a Target.
+          There is some debate about using Cloudflare CDN sites with Reality. At present, it is not a major issue for personal use.
+          If this concerns you, you can use an Amazon site or another CDN-backed site.
+        </p>
+        <p>
+          <b>The site type is unrestricted: it may be a corporate site, game site, animation site, manga site, movie site, and so on.</b>
+        </p>
+        <p>
+          You are not limited to the types listed above; choose according to your preference. Any site that meets Reality's requirements is acceptable. Within those limits, you can choose freely.
+        </p>
+        <p>
+          <b>The site should have a genuine business and should not involve sensitive content, including adult or political content.</b>
+        </p>
+        <p>
+          In theory, a site with genuine business is less likely to be blocked.
+          Similarly, a site with adult or other sensitive content may be blocked. To avoid being affected by association, try to choose a site with compliant business activity as the Target.
+        </p>
+        <p>
+          <b>A Target may be a subdomain; subdomains of large sites are recommended.</b>
+        </p>
+        <p>
+          This may surprise people who are new to Reality. In fact, a large site can contain many subdomains.
+          As long as a subdomain supports TLS 1.3, it can also be used as a Target. I personally lean toward subdomains because their traffic is larger and more varied, with more realistic traffic characteristics.
+        </p>
+        <p>
+          <b>A subdomain does not have to show content when opened in a browser. For example, api.xxx.com, cdn.xxx.com, and update.xxx.com can all be Targets, as long as the handshake is stable.</b>
+        </p>
+        <p>In fact, Reality does not require the Target to display content in a browser.
+          Even if a CDN subdomain used as a Target returns a 404 in the browser, it can still be suitable as long as it meets Reality's requirements. In my personal experience, this works reasonably well.
+        </p>
+        <p>
+          <b>The site should have some recognition and ideally real visitors; it should not be too niche.</b>
+        </p>
+        <p>
+          This point still needs further study. My current observation is that using an overly niche site may lead to Reality being targeted. Typical symptoms are a connection that works but cannot achieve normal speed, or unexpectedly slow performance. To improve stability, choosing a site with a certain amount of real traffic is the best option.
+        </p>
+        <p>
+          <b>Try to align regions. For example, use a Japanese site for a Japanese server and a US site for a US server.</b>
+        </p>
+        <p>This is not mandatory. If the site is CDN-backed, your handshake will often be completed by an edge node, and CDN nodes may be distributed worldwide. Regional alignment can improve the camouflage effect, though the impact appears limited at present.</p>
+        <p>
+          <b>If the server has only IPv6, it is best to choose a Target that supports IPv6.</b><br>
+        </p>
+        <p>
+          This point deserves more explanation. If your server is IPv6
+          ONLY, it has no IPv4 address. You should therefore find a site that supports IPv6. If the site does not support IPv6, Reality's handshake will fail and the connection cannot be established.
+          The frustrating part is that, for a Japanese server, finding an IPv6-capable Japanese site as a Target can be difficult. Most Japanese sites support only IPv4. Even CDN-backed sites may expose only IPv4.<br>
+          In this situation, there are two ways to help Reality on an IPv6-only server complete the handshake.<br>
+        </p>
+        <p>
+          The first is <a href="https://github.com/fscarmen/warp-sh" target="_blank">WARP CLI</a>. By obtaining a WARP
+          IPv4 address from Cloudflare, you gain an IPv4 address. Reality can then use Cloudflare's edge network to complete the handshake with the Target. This is the first approach.
+          Incidentally, the IPv4 address assigned by Cloudflare is outbound-only, so it cannot be used for SSH.
+          The second approach is to use a public NAT64 server to convert IPv4 access to a special IPv6 address. In essence, this is also a relay, and it is slower than WARP.
+        </p>
+        <p>
+          A recommended public NAT64 server is:<br>
+          https://nat64.net/
+        </p>
+        <p>However, both approaches may involve some risk.</p>
+        <p><b>This raises a question:</b></p>
+        <p>
+          How can a Target site that has only an IPv4 DNS A record suddenly receive IPv6 access through an AAAA record? Your server accesses it over IPv6, but the Target itself has no IPv6 AAAA record.
+          In theory, if the GFW knew that the Target had no AAAA record, it might identify Reality based on this characteristic. That said, this alone may not be enough to determine that a server is a proxy; NAT64 traffic also exists on the Internet.
+          This cannot currently be verified. Because the handshake happens overseas, the GFW cannot observe it. There is no research showing that the GFW attempts to query a Target site's DNS records. So far, this approach remains effective.
+        </p>
+        <p>I recommend a dual-stack IPv4 + IPv6 site as a Target.</p>
+        <p>The situation above applies only when an IPv6-only server uses an IPv4-only Target.</p>
+        <p>When the server has IPv4, Reality completes the handshake with the Target over IPv4. Even NAT IPv4 can complete the handshake. Even if the IPv4 address is blocked locally, Reality can complete the handshake as long as the server can reach the Target from overseas, so this issue is not a concern.</p>
+        <p>
+          <b>What I most want to say at the end is this: there is no single best Target solution. Everyone's choice can be different.
+            Just find what suits you best. I will not recommend any particular site as the best or most convincing Target.
+            Blocking is often caused by multiple factors together. Because the GFW is a black box, we cannot directly conclude that a Target caused a block.
+            The well-known Targets mentioned in this article are examples only, not recommendations.
+          </b>
+        </p>
+        <p><b>Everything above is only a personal discussion of Reality.</b></p>
+        <p><b>The information in this article may not fully apply to censorship conditions in the reader's region.</b></p>
+        <p>Tools mentioned in this article:</p>
+        <a href="https://github.com/fscarmen/warp-sh" target="_blank" class="github-link">
+                      
+          <!-- GitHub SVG icon -->
+          <svg height="16" width="16" viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 4px;">
+            <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 
+            6.53 5.47 7.59.4.07.55-.17.55-.38 
+            0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
+            -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
+            -.01-.53.63-.01 1.08.58 1.23.82.72 1.21
+            1.87.87 2.33.66.07-.52.28-.87.51-1.07
+            -1.78-.2-3.64-.89-3.64-3.95
+            0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12
+            0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 
+            2 .27c1.53-1.04 2.2-.82 
+            2.2-.82.44 1.1.16 1.92.08 
+            2.12.51.56.82 1.27.82 2.15
+            0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 
+            1.48 0 1.07-.01 1.93-.01 2.2 
+            0 .21.15.46.55.38A8.01 8.01 0 0 0 16 
+            8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+      
+          warp-sh
+        </a>
+        <span class="desc">warp-sh</span>
+    </p>
+    
+      <a href="https://termius.com/index.html">Termius</a>
+    
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div>© <span id="y"></span> liyigarden.xyz · <a href="/">Home</a></div>
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+
+</html>
