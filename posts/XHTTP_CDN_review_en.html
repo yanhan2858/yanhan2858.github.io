@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>XHTTP CDN Review: Personal Tests of Multiple CDNs</title>
+  <meta name="description" content="Personal tests of CDN providers that can run XHTTP, including Cloudflare, AWS CloudFront, Fastly, Bunny, Gcore, Azion, Alibaba Cloud ESA, Tencent EdgeOne, and Nordic." />
+  <meta name="keywords" content="XHTTP, CDN, Xray, VLESS, Cloudflare, CloudFront, Fastly, EdgeOne, Alibaba Cloud ESA" />
+  <link rel="canonical" href="https://liyigarden.xyz/posts/XHTTP_CDN_review_en.html" />
+
+  <link rel="stylesheet" href="/CSS/mainstyle.css" />
+  <link rel="icon" href="/favicon.ico" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="liyigarden" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="XHTTP CDN Review: Personal Tests of Multiple CDNs" />
+  <meta property="og:description" content="Personal tests of CDN providers that can run XHTTP." />
+  <meta property="og:url" content="https://liyigarden.xyz/posts/XHTTP_CDN_review_en.html" />
+  <meta property="article:published_time" content="2026-10-29" />
+  <meta property="article:modified_time" content="2026-10-29" />
+  <meta name="twitter:card" content="summary" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "XHTTP CDN Review: Personal Tests of Multiple CDNs",
+    "description": "Personal tests of CDN providers that can run XHTTP, including Cloudflare, AWS CloudFront, Fastly, Bunny, Gcore, Azion, Alibaba Cloud ESA, Tencent EdgeOne, and Nordic.",
+    "url": "https://liyigarden.xyz/posts/XHTTP_CDN_review_en.html",
+    "datePublished": "2026-10-29",
+    "dateModified": "2026-10-29",
+    "inLanguage": "en",
+    "author": { "@type": "Person", "name": "liyigarden" },
+    "publisher": { "@type": "Organization", "name": "liyigarden", "url": "https://liyigarden.xyz/" }
+  }
+  </script>
+</head>
+
+<body>
+  <div class="container">
+
+    <header class="site-header">
+      <p class="site-title">
+        <a href="/" style="color:inherit;text-decoration:none">liyigarden</a>
+      </p>
+
+      <nav class="nav">
+        <a href="/">← Back to Home</a>
+      </nav>
+    </header>
+
+    <main>
+      <article>
+
+        <p class="meta">
+          <time datetime="2026-10-29">2026-10-29</time>
+        </p>
+
+        <h1>XHTTP CDN Review: Personal Tests of Multiple CDNs</h1>
+
+        <p>
+          <b>AI translation notice:</b><br>
+          This English version was translated from the original Chinese article with AI assistance. The original Chinese version is authoritative; please refer to it if any wording is unclear.
+        </p>
+
+        <p>
+          <b>This article is an informal account of personal experience, provided for reference only. Please comply with the laws and regulations in your area. Please keep the article's timeliness in mind while reading.</b>
+        </p>
+
+        <p>
+          XHTTP can use POST and GET to pass through certain CDNs for data transmission. This makes it possible to use a CDN as a reverse proxy for a node. Because CDNs behave differently, being able to pass through XHTTP does not necessarily mean a good user experience.
+        </p>
+
+        <p class="title"><b>There are three prerequisites for running XHTTP through a CDN:</b></p>
+        <p>
+          The CDN supports adding a third-party origin server.<br>
+          The CDN supports disabling caching. (A small number can still work without disabling it.)<br>
+          The CDN allows POST and GET methods.
+        </p>
+        <p><b>All three requirements must be met. Otherwise, there is no chance!</b></p>
+
+        <p>
+          This article provides a simple review of CDNs that XHTTP can pass through. Please note! It evaluates only CDNs that I have successfully run with XHTTP.
+          The CDNs reviewed in this article all use Free Tier/Pay as you go (usage-based billing); the quality and behavior of some edge nodes may not fully match the descriptions below.
+        </p>
+
+        <p>
+          <b>So far, the CDNs that can run XHTTP are as follows:</b><br>
+          <a href="https://www.cloudflare.com/products/cdn/" target="_blank" rel="noopener noreferrer">Cloudflare</a><br>
+          <a href="https://aws.amazon.com/cloudfront/" target="_blank" rel="noopener noreferrer">AWS CloudFront</a><br>
+          <a href="https://www.fastly.com/products/deliver" target="_blank" rel="noopener noreferrer">Fastly</a><br>
+          <a href="https://bunny.net/cdn/" target="_blank" rel="noopener noreferrer">Bunny</a><br>
+          <a href="https://gcore.com/cdn" target="_blank" rel="noopener noreferrer">Gcore</a><br>
+          <a href="https://www.azion.com" target="_blank" rel="noopener noreferrer">Azion</a><br>
+          <a href="https://www.alibabacloud.com/en/product/esa" target="_blank" rel="noopener noreferrer">Alibabacloud ESA</a><br>
+          <a href="https://edgeone.ai/" target="_blank" rel="noopener noreferrer">Tencentcloud Edge One</a><br>
+          <a href="https://nordiccdn.com/" target="_blank" rel="noopener noreferrer">Nordic</a>
+        </p>
+
+        <p>Readers can also explore CDNs not mentioned in this article. Links are placed at the bottom of the article.</p>
+        <p>Some review items use a rating system. Ratings range from 1 to 5, with 5 being the highest score.</p>
+
+        <p class="title"><b><a href="https://www.cloudflare.com/products/cdn/" target="_blank" rel="noopener noreferrer">Cloudflare</a></b></p>
+        <p>
+          <b>Configuration difficulty: 1 ⭐</b><br>
+          After adding the domain to Cloudflare and enabling Cloudflare proxying for a DNS record, it is ready to use.<br>
+          Edge nodes support IPv6.<br>
+          Edge nodes support IPv6 origin pulls.<br>
+          QUIC is supported.<br>
+          XHTTP can pass through directly without additional settings.<br>
+          Optimization for mainland China: 2 (Speed is relatively poor.)<br>
+          Does it support preferred IPs: Not very useful; checks are strict, and edge nodes do not follow DNS scheduling.
+        </p>
+
+        <p class="title"><b><a href="https://aws.amazon.com/cloudfront/" target="_blank" rel="noopener noreferrer">AWS CloudFront</a></b></p>
+        <p>
+          <b>Configuration difficulty: 2 ⭐⭐</b><br>
+          CNAME access can be used.<br>
+          Edge nodes support IPv6.<br>
+          Edge nodes support IPv6 origin pulls.<br>
+          QUIC is supported.<br>
+          XHTTP cannot pass through directly. You need to create a rule in the Behavior settings in the console to allow all HTTP method types. (It is recommended to ask an AI for help.)<br>
+          Optimization for mainland China: 5 (Excellent speed)<br>
+          Does it support preferred IPs: Preferred IPs can be used, and edge nodes follow DNS scheduling. The client can pin an edge IP.<br>
+          PAY AS YOU GO: 10 million requests + 1 TB outbound traffic per month.
+        </p>
+
+        <p class="title"><b><a href="https://www.fastly.com/products/deliver" target="_blank" rel="noopener noreferrer">Fastly</a></b></p>
+        <p>
+          <b>Configuration difficulty: 4 ⭐⭐⭐⭐</b><br>
+          CNAME access is supported.<br>
+          Edge nodes support IPv6.<br>
+          Edge nodes support IPv6 origin pulls.<br>
+          QUIC is supported.<br>
+          The configuration is relatively complicated; it is recommended to ask Codex or Grok for help.<br>
+          XHTTP cannot pass through directly. Edge nodes may also terminate XHTTP connections; increasing the connection lifetime to the maximum in the console can help alleviate this.<br>
+          Optimization for mainland China: 4 (Good)<br>
+          European edge nodes have the best speed.<br>
+          Does it support preferred IPs: Preferred IPs can be used, and edge nodes follow DNS scheduling. The client can pin an edge IP.<br>
+          A credit card is required for registration. The Free Tier has only 1 million requests + 100 GB of traffic per month. Usage beyond that is billed by volume. (Under intensive use, XHTTP can exhaust the request allowance in fewer than 10 days.)
+        </p>
+
+        <p class="title"><b><a href="https://bunny.net/cdn/" target="_blank" rel="noopener noreferrer">Bunny</a></b></p>
+        <p>
+          <b>Configuration difficulty: 1 ⭐</b><br>
+          CNAME access is supported.<br>
+          Edge nodes support IPv6.<br>
+          Some edge nodes do not support IPv6 origin pulls.<br>
+          QUIC is supported.<br>
+          XHTTP can pass through directly after caching is disabled.<br>
+          Optimization for mainland China: 3 (Average)<br>
+          Does it support preferred IPs: Preferred IPs can be used, and edge nodes follow DNS scheduling. The client can pin an edge IP.<br>
+          Edge nodes may terminate XHTTP video streams. Console adjustments cannot effectively improve this. Only 1080P video can be watched.<br>
+          14-day free trial.<br>
+          Minimum monthly spend of 1 USD.
+        </p>
+
+        <p class="title"><b><a href="https://gcore.com/cdn" target="_blank" rel="noopener noreferrer">Gcore</a></b></p>
+        <p>
+          <b>Configuration difficulty: 2 ⭐⭐</b><br>
+          CNAME access is supported.<br>
+          Edge nodes support IPv6.<br>
+          Edge nodes do not support IPv6 origin pulls or IPv6 origin servers.<br>
+          QUIC is supported.<br>
+          XHTTP cannot pass through directly. It can pass through after allowing all HTTP methods and disabling caching in the console.<br>
+          Optimization for mainland China: 4 (Good)<br>
+          Does it support preferred IPs: Preferred IPs can be used on the PAYG Plan, and edge nodes follow DNS scheduling. The client can pin an edge IP.<br>
+          10 million requests + 2 TB outbound traffic per month. Usage beyond that is billed by volume.
+        </p>
+
+        <p class="title"><b><a href="https://www.azion.com" target="_blank" rel="noopener noreferrer">Azion</a></b></p>
+        <p>
+          <b>Configuration difficulty: 5 ⭐⭐⭐⭐⭐</b><br>
+          CNAME access is supported.<br>
+          Edge nodes do not support IPv6.<br>
+          Edge nodes support IPv6 origin pulls.<br>
+          QUIC is not supported.<br>
+          XHTTP cannot pass through directly and requires additional rules. It is relatively complicated; it is recommended to ask an AI for help.<br>
+          Optimization for mainland China: 2 (Relatively poor)<br>
+          Does it support preferred IPs: Preferred IPs can be used, and edge nodes follow DNS scheduling. The client can pin an edge IP.<br>
+          Edge nodes directly terminate XHTTP connections, making video playback impossible. There are currently no console settings that can effectively improve this. Usability is relatively low. Web pages and downloads work normally.<br>
+          10 million requests + 1 TB outbound traffic per month.<br>
+          A Pro plan is required after exceeding the allowance.
+        </p>
+
+        <p class="title"><b><a href="https://www.alibabacloud.com/en/product/esa" target="_blank" rel="noopener noreferrer">Alibabacloud ESA</a></b></p>
+        <p>
+          <b>Configuration difficulty: 3 ⭐⭐⭐</b><br>
+          CNAME access is supported. (Subdomains are not supported.)<br>
+          Edge nodes support IPv6.<br>
+          Edge nodes support IPv6 origin pulls.<br>
+          QUIC is supported.<br>
+          XHTTP can pass through directly after caching is disabled.<br>
+          Optimization for mainland China: 4 (Good)<br>
+          Does it support preferred IPs: Preferred IPs can be used, and edge nodes follow DNS scheduling. The client can pin an edge IP.<br>
+          The free plan has unlimited traffic, with no SLA or connection-availability guarantee.<br>
+          It is strongly recommended to enable VLESS Encryption to prevent XHTTP characteristics from being exposed.<br>
+          Registration requires an overseas mobile number.
+        </p>
+
+        <p class="title"><b><a href="https://edgeone.ai/" target="_blank" rel="noopener noreferrer">Tencentcloud Edge One</a></b></p>
+        <p>
+          <b>Configuration difficulty: 2 ⭐⭐</b><br>
+          CNAME access is supported. (Subdomains are also not supported.)<br>
+          Edge nodes support IPv6.<br>
+          Edge nodes support IPv6 origin pulls.<br>
+          QUIC is supported.<br>
+          XHTTP can pass through directly after caching is disabled.<br>
+          Optimization for mainland China: 3 (Average), performing less well than Alibaba Cloud.<br>
+          Does it support preferred IPs: Preferred IPs can be used, and edge nodes follow DNS scheduling. The client can pin an edge IP.<br>
+          The free plan has unlimited traffic, with no SLA or connection-availability guarantee.<br>
+          You can join the activity to receive a free plan: <a href="https://edgeone.ai/zh/get-free-plan" target="_blank" rel="noopener noreferrer">Share a speed test to unlock more EdgeOne free plans</a><br>
+          It is strongly recommended to enable VLESS Encryption to prevent XHTTP characteristics from being exposed.<br>
+          Registration does not require an overseas mobile number.
+        </p>
+
+        <p class="title"><b><a href="https://nordiccdn.com/" target="_blank" rel="noopener noreferrer">Nordic</a></b></p>
+        <p>
+          <b>Configuration difficulty: 3 ⭐⭐⭐</b><br>
+          CNAME access is supported.<br>
+          Edge nodes support IPv6.<br>
+          Edge nodes support IPv6 origin pulls.<br>
+          QUIC is supported.<br>
+          XHTTP can pass through directly after caching is disabled.<br>
+          Optimization for mainland China: 4 (Good)<br>
+          Does it support preferred IPs: Preferred IPs can be used, and edge nodes follow DNS scheduling. The client can pin an edge IP.<br>
+          25 GB of free traffic per month.<br>
+          It may delete Zones for no apparent reason. Although XHTTP can run, it may be deleted very quickly.<br>
+          The reason is unknown.
+        </p>
+
+        <p class="title"><b>CDNs that have been collected but are not yet mentioned in the article:</b></p>
+        <p>
+          <a href="https://www.akamai.com" target="_blank" rel="noopener noreferrer">Akamai</a>: Out of reach! The entry barrier is too high.<br>
+          <a href="https://azure.microsoft.com" target="_blank" rel="noopener noreferrer">Azure Frontdoor</a>: Not cost-effective.<br>
+          <a href="https://cloud.google.com/cdn" target="_blank" rel="noopener noreferrer">Google Cloud CDN</a>: Not cost-effective.<br>
+          <a href="https://www.cdnetworks.com/products/cdn/" target="_blank" rel="noopener noreferrer">CDNetwork</a>: Not cost-effective.<br>
+          <a href="https://www.byteplus.com/en/product/cdn" target="_blank" rel="noopener noreferrer">Byteplus</a>: Not cost-effective.<br>
+          <a href="https://www.cdn77.com/" target="_blank" rel="noopener noreferrer">CDN77</a>: Out of reach! The barrier is also too high.<br>
+          <a href="https://www.wedos.com" target="_blank" rel="noopener noreferrer">Wedos</a>: Did not work.<br>
+          <a href="https://cdnshark.com/" target="_blank" rel="noopener noreferrer">CDNShark</a>: Registration channels are closed, so it has not been tried yet.<br>
+          <a href="https://www.cachefly.com/" target="_blank" rel="noopener noreferrer">Cachefly</a>: A credit card must be linked; registration controls are strict, so registration has not yet succeeded.<br>
+          <a href="https://cdnsun.com/" target="_blank" rel="noopener noreferrer">CDNsun</a>: Not cost-effective.<br>
+          <a href="https://www.lightcdn.com/" target="_blank" rel="noopener noreferrer">Lightcdn</a>: I have not tried it.<br>
+          <a href="https://blazingcdn.com/" target="_blank" rel="noopener noreferrer">Blazingcdn</a>: Not cost-effective.<br>
+          <a href="https://cdn5.com/" target="_blank" rel="noopener noreferrer">cdn5</a>: Not cost-effective.<br>
+          <a href="https://flashedgecdn.com/" target="_blank" rel="noopener noreferrer">Flashedgecdn</a>: Look into it yourself.<br>
+          <a href="https://www.keycdn.com/" target="_blank" rel="noopener noreferrer">Keycdn</a>: Not cost-effective.<br>
+          <a href="https://www.edge.network/" target="_blank" rel="noopener noreferrer">edge.network</a>: I have not tried it.<br>
+          <a href="https://quic.cloud/" target="_blank" rel="noopener noreferrer">quic.cloud</a>: It does not seem to be a proper CDN and will most likely not work.
+        </p>
+
+        <p><b>That concludes the review!</b></p>
+        <p>Thank you for reading.</p>
+        <p>
+          Project mentioned in this article:<br>
+          <a href="https://github.com/XTLS/Xray-core" target="_blank" rel="noopener noreferrer">XTLS/Xray-core</a>
+        </p>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div>© <span id="y"></span> liyigarden.xyz · <a href="/">Home</a></div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>

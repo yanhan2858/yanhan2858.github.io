@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>XHTTP可用CDN简单测评</title>
+  <title>XHTTP可用CDN测评：多家CDN的个人实测记录</title>
   <meta name="description" content="XHTTP可用CDN简单测评。XHTTP可以通过POST和GET穿透某些CDN进行数据传输。" />
   <meta name="keywords" content="XHTTP, CDN, Xray, VLESS, Cloudflare, CloudFront, Fastly, EdgeOne, 阿里云ESA" />
   <link rel="canonical" href="https://liyigarden.xyz/posts/XHTTP_CDN_review.html" />
@@ -16,22 +16,22 @@
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="liyigarden" />
   <meta property="og:locale" content="zh_CN" />
-  <meta property="og:title" content="XHTTP可用CDN简单测评" />
+  <meta property="og:title" content="XHTTP可用CDN测评：多家CDN的个人实测记录" />
   <meta property="og:description" content="XHTTP可用CDN简单测评。XHTTP可以通过POST和GET穿透某些CDN进行数据传输。" />
   <meta property="og:url" content="https://liyigarden.xyz/posts/XHTTP_CDN_review.html" />
   <meta property="article:published_time" content="2026-10-28" />
-  <meta property="article:modified_time" content="2026-10-28" />
+  <meta property="article:modified_time" content="2026-10-29" />
   <meta name="twitter:card" content="summary" />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "XHTTP可用CDN简单测评",
+    "headline": "XHTTP可用CDN测评：多家CDN的个人实测记录",
     "description": "XHTTP可用CDN简单测评。XHTTP可以通过POST和GET穿透某些CDN进行数据传输。",
     "url": "https://liyigarden.xyz/posts/XHTTP_CDN_review.html",
     "datePublished": "2026-10-28",
-    "dateModified": "2026-10-28",
+    "dateModified": "2026-10-29",
     "inLanguage": "zh-CN",
     "author": { "@type": "Person", "name": "liyigarden" },
     "publisher": { "@type": "Organization", "name": "liyigarden", "url": "https://liyigarden.xyz/" }
@@ -59,7 +59,7 @@
           <time datetime="2026-10-28">2026-10-28</time>
         </p>
 
-        <h1>XHTTP可用CDN简单测评</h1>
+        <h1>XHTTP可用CDN测评：多家CDN的个人实测记录</h1>
 
         <p>
           <b>本文为个人经验杂谈，仅供参考。请遵守所在地区的法律法规。请读者阅读时注意文章的时效性。</b>
@@ -79,6 +79,7 @@
 
         <p>
           本篇文章对XHTTP可穿透的CDN进行简单评测。请注意！文章仅评测博主已经成功通过XHTTP跑通的CDN。
+          文章中测评的CDN均使用Free Tier/Pay as you go（按量计费）部分边缘的质量和行为可能不一定与下文描述的完全相符。
         </p>
 
         <p>
@@ -94,7 +95,7 @@
           <a href="https://nordiccdn.com/" target="_blank" rel="noopener noreferrer">Nordic</a>
         </p>
 
-        <p>对于文章中未提到的CDN读者也可以自行探索。</p>
+        <p>对于文章中未提到的CDN读者也可以自行探索。链接已放置文章底部。</p>
         <p>部分评测内容按打分制进行。评分范围1-5分。5分即为最高分。</p>
 
         <p class="title"><b><a href="https://www.cloudflare.com/products/cdn/" target="_blank" rel="noopener noreferrer">Cloudflare</a></b></p>
@@ -214,7 +215,7 @@
         <p class="title"><b><a href="https://nordiccdn.com/" target="_blank" rel="noopener noreferrer">Nordic</a></b></p>
         <p>
           <b>配置难度：3 ⭐⭐⭐</b><br>
-          支持CNAME接入。（同样不支持子域名）<br>
+          支持CNAME接入。<br>
           边缘支持IPV6。<br>
           边缘支持IPV6回源。<br>
           支持QUIC。<br>
@@ -222,20 +223,21 @@
           对中国大陆优化：4（良好）<br>
           是否支持优选IP：可优选IP，边缘受DNS调度。客户端可写死边缘IP。<br>
           每月免费25GB流量。<br>
-          会莫名其妙删除Zone。XHTTP虽然能跑通但是会很快被删除。
+          会莫名其妙删除Zone。XHTTP虽然能跑通但是会很快被删除。<br>
+          原因不明。
         </p>
 
         <p class="title"><b>文章中暂未提到的但已收录的CDN名单：</b></p>
         <p>
-          <a href="https://www.akamai.com" target="_blank" rel="noopener noreferrer">Akamai</a>：玩不起！<br>
+          <a href="https://www.akamai.com" target="_blank" rel="noopener noreferrer">Akamai</a>：玩不起！门槛太高。<br>
           <a href="https://azure.microsoft.com" target="_blank" rel="noopener noreferrer">Azure Frontdoor</a>：不划算。<br>
           <a href="https://cloud.google.com/cdn" target="_blank" rel="noopener noreferrer">Google Cloud CDN</a>：不划算。<br>
           <a href="https://www.cdnetworks.com/products/cdn/" target="_blank" rel="noopener noreferrer">CDNetwork</a>：不划算。<br>
           <a href="https://www.byteplus.com/en/product/cdn" target="_blank" rel="noopener noreferrer">Byteplus</a>: 不划算。<br>
-          <a href="https://www.cdn77.com/" target="_blank" rel="noopener noreferrer">CDN77</a>: 玩不起！<br>
+          <a href="https://www.cdn77.com/" target="_blank" rel="noopener noreferrer">CDN77</a>: 玩不起！门槛同样太高。<br>
           <a href="https://www.wedos.com" target="_blank" rel="noopener noreferrer">Wedos</a>：没跑通。<br>
           <a href="https://cdnshark.com/" target="_blank" rel="noopener noreferrer">CDNShark</a>：注册渠道已关闭，暂未尝试。<br>
-          <a href="https://www.cachefly.com/" target="_blank" rel="noopener noreferrer">Cachefly</a>：注册风控严格暂未注册成功。<br>
+          <a href="https://www.cachefly.com/" target="_blank" rel="noopener noreferrer">Cachefly</a>：注册需绑定信用卡，风控严格暂未注册成功。<br>
           <a href="https://cdnsun.com/" target="_blank" rel="noopener noreferrer">CDNsun</a>：不划算。<br>
           <a href="https://www.lightcdn.com/" target="_blank" rel="noopener noreferrer">Lightcdn</a>：咱未尝试。<br>
           <a href="https://blazingcdn.com/" target="_blank" rel="noopener noreferrer">Blazingcdn</a>：不划算。<br>
@@ -243,14 +245,14 @@
           <a href="https://flashedgecdn.com/" target="_blank" rel="noopener noreferrer">Flashedgecdn</a>：自行了解。<br>
           <a href="https://www.keycdn.com/" target="_blank" rel="noopener noreferrer">Keycdn</a>：不划算。<br>
           <a href="https://www.edge.network/" target="_blank" rel="noopener noreferrer">edge.network</a>：咱未尝试。<br>
-          <a href="https://quic.cloud/" target="_blank" rel="noopesner noreferrer">quic.cloud</a>：不是正经CDN大概率跑不通。
+          <a href="https://quic.cloud/" target="_blank" rel="noopesner noreferrer">quic.cloud</a>：貌似不是正经CDN大概率跑不通。
         </p>
 
         <p><b>总结完毕！</b></p>
         <p>感谢你的阅读。</p>
         <p>
           文章中提到的项目如下：<br>
-          <a href="https://github.com/XTLS/Xray-core" target="_blank" rel="noopener noreferrer">XTLS/Xray-core: Xray, Penetrates Everything. Also the best v2ray-core. Where the magic happens. An open platform for various uses.</a>
+          <a href="https://github.com/XTLS/Xray-core" target="_blank" rel="noopener noreferrer">XTLS/Xray-core</a>
         </p>
       </article>
     </main>
