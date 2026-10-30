@@ -84,13 +84,15 @@
 
         <p>
           <b>目前为止XHTTP可以跑通的CDN如下：</b><br>
-          <a href="https://www.cloudflare.com/products/cdn/" target="_blank" rel="noopener noreferrer">Cloudflare</a><br>
+          <a href="https://www.cloudflare.com/products/cdn/" target="_blank"
+            rel="noopener noreferrer">Cloudflare</a><br>
           <a href="https://aws.amazon.com/cloudfront/" target="_blank" rel="noopener noreferrer">AWS CloudFront</a><br>
           <a href="https://www.fastly.com/products/deliver" target="_blank" rel="noopener noreferrer">Fastly</a><br>
           <a href="https://bunny.net/cdn/" target="_blank" rel="noopener noreferrer">Bunny</a><br>
           <a href="https://gcore.com/cdn" target="_blank" rel="noopener noreferrer">Gcore</a><br>
           <a href="https://www.azion.com" target="_blank" rel="noopener noreferrer">Azion</a><br>
-          <a href="https://www.alibabacloud.com/en/product/esa" target="_blank" rel="noopener noreferrer">Alibabacloud ESA</a><br>
+          <a href="https://www.alibabacloud.com/en/product/esa" target="_blank" rel="noopener noreferrer">Alibabacloud
+            ESA</a><br>
           <a href="https://edgeone.ai/" target="_blank" rel="noopener noreferrer">Tencentcloud Edge One</a><br>
           <a href="https://nordiccdn.com/" target="_blank" rel="noopener noreferrer">Nordic</a><br>
           <a href="https://www.wedos.com" target="_blank" rel="noopener noreferrer">Wedos</a>
@@ -99,7 +101,8 @@
         <p>对于文章中未提到的CDN读者也可以自行探索。链接已放置文章底部。</p>
         <p>部分评测内容按打分制进行。评分范围1-5分。5分即为最高分。</p>
 
-        <p class="title"><b><a href="https://www.cloudflare.com/products/cdn/" target="_blank" rel="noopener noreferrer">Cloudflare</a></b></p>
+        <p class="title"><b><a href="https://www.cloudflare.com/products/cdn/" target="_blank"
+              rel="noopener noreferrer">Cloudflare</a></b></p>
         <p>
           <b>配置难度：1 ⭐</b><br>
           域名添加至Cloudflare托管后添加DNS记录开启小云朵即可。<br>
@@ -111,7 +114,8 @@
           是否支持优选IP: 不太管用，查得严。且边缘不吃DNS调度。
         </p>
 
-        <p class="title"><b><a href="https://aws.amazon.com/cloudfront/" target="_blank" rel="noopener noreferrer">AWS CloudFront</a></b></p>
+        <p class="title"><b><a href="https://aws.amazon.com/cloudfront/" target="_blank" rel="noopener noreferrer">AWS
+              CloudFront</a></b></p>
         <p>
           <b>配置难度：2 ⭐⭐</b><br>
           可使用CNAME接入。<br>
@@ -124,7 +128,8 @@
           PAY AS YOU GO每月1000万次请求+1TB出站。
         </p>
 
-        <p class="title"><b><a href="https://www.fastly.com/products/deliver" target="_blank" rel="noopener noreferrer">Fastly</a></b></p>
+        <p class="title"><b><a href="https://www.fastly.com/products/deliver" target="_blank"
+              rel="noopener noreferrer">Fastly</a></b></p>
         <p>
           <b>配置难度：4 ⭐⭐⭐⭐</b><br>
           支持CNAME接入。<br>
@@ -182,7 +187,8 @@
           超出后需升级到Pro计划。
         </p>
 
-        <p class="title"><b><a href="https://www.alibabacloud.com/en/product/esa" target="_blank" rel="noopener noreferrer">Alibabacloud ESA</a></b></p>
+        <p class="title"><b><a href="https://www.alibabacloud.com/en/product/esa" target="_blank"
+              rel="noopener noreferrer">Alibabacloud ESA</a></b></p>
         <p>
           <b>配置难度：3 ⭐⭐⭐</b><br>
           支持CNAME接入。（不支持子域名）<br>
@@ -197,7 +203,8 @@
           注册需海外手机号。
         </p>
 
-        <p class="title"><b><a href="https://edgeone.ai/" target="_blank" rel="noopener noreferrer">Tencentcloud Edge One</a></b></p>
+        <p class="title"><b><a href="https://edgeone.ai/" target="_blank" rel="noopener noreferrer">Tencentcloud Edge
+              One</a></b></p>
         <p>
           <b>配置难度:2 ⭐⭐</b><br>
           支持CNAME接入。（同样不支持子域名）<br>
@@ -208,9 +215,26 @@
           对中国大陆优化：3（一般）表现不如阿里云<br>
           是否支持优选IP：可优选IP，边缘受DNS调度。客户端可写死边缘IP。<br>
           免费计划无限流量，无SLA和连接可用性保障。<br>
-          参加活动可领取免费计划：<a href="https://edgeone.ai/zh/get-free-plan" target="_blank" rel="noopener noreferrer">测速分享，解锁更多 EdgeOne 免费套餐</a><br>
+          参加活动可领取免费计划：<a href="https://edgeone.ai/zh/get-free-plan" target="_blank" rel="noopener noreferrer">测速分享，解锁更多
+            EdgeOne 免费套餐</a><br>
           强烈建议开启VLESS Encryption防止XHTTP特征暴露。<br>
           注册无需海外手机号。
+        </p>
+
+        <p class="title"><b><a href="https://nordiccdn.com/" target="_blank" rel="noopener noreferrer">Nordic</a></b>
+        </p>
+        <p>
+          <b>配置难度: 3 ⭐⭐⭐</b><br>
+          支持CNAME接入<br>
+          边缘支持IPV6。<br>
+          边缘支持IPV6回源。<br>
+          边缘支持QUIC<br>
+          禁用缓存后XHTTP可直接穿过。<br>
+          对中国大陆优化：4（良好）<br>
+          可优选IP，边缘受DNS调度。客户端可写死边缘IP。<br>
+          每月25GB免费额度<br>
+          部署完XHTTP后跑一段时间流量后大概200MB左右会莫名其妙删Zone。目前怀疑是触发了风控。
+          控制台Support暂无回复。
         </p>
 
         <p class="title"><b><a href="https://www.wedos.com" target="_blank" rel="noopener noreferrer">Wedos</a></b></p>
@@ -231,12 +255,15 @@
           <a href="https://www.akamai.com" target="_blank" rel="noopener noreferrer">Akamai</a>：玩不起！门槛太高。<br>
           <a href="https://azure.microsoft.com" target="_blank" rel="noopener noreferrer">Azure Frontdoor</a>：不划算。<br>
           <a href="https://cloud.google.com/cdn" target="_blank" rel="noopener noreferrer">Google Cloud CDN</a>：不划算。<br>
-          <a href="https://www.cdnetworks.com/products/cdn/" target="_blank" rel="noopener noreferrer">CDNetwork</a>：不划算。<br>
-          <a href="https://www.byteplus.com/en/product/cdn" target="_blank" rel="noopener noreferrer">Byteplus</a>: 不划算。<br>
+          <a href="https://www.cdnetworks.com/products/cdn/" target="_blank"
+            rel="noopener noreferrer">CDNetwork</a>：不划算。<br>
+          <a href="https://www.byteplus.com/en/product/cdn" target="_blank" rel="noopener noreferrer">Byteplus</a>:
+          不划算。<br>
           <a href="https://www.cdn77.com/" target="_blank" rel="noopener noreferrer">CDN77</a>: 玩不起！门槛同样太高。<br>
           <a href="https://www.wedos.com" target="_blank" rel="noopener noreferrer">Wedos</a>：<del>没跑通。</del>已跑通！<br>
           <a href="https://cdnshark.com/" target="_blank" rel="noopener noreferrer">CDNShark</a>：注册渠道已关闭，暂未尝试。<br>
-          <a href="https://www.cachefly.com/" target="_blank" rel="noopener noreferrer">Cachefly</a>：注册需绑定信用卡，风控严格暂未注册成功。<br>
+          <a href="https://www.cachefly.com/" target="_blank"
+            rel="noopener noreferrer">Cachefly</a>：注册需绑定信用卡，风控严格暂未注册成功。<br>
           <a href="https://cdnsun.com/" target="_blank" rel="noopener noreferrer">CDNsun</a>：自行了解。<br>
           <a href="https://www.lightcdn.com/" target="_blank" rel="noopener noreferrer">Lightcdn</a>：自行了解。<br>
           <a href="https://blazingcdn.com/" target="_blank" rel="noopener noreferrer">Blazingcdn</a>：自行了解。<br>
